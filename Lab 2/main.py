@@ -18,24 +18,22 @@ def weapon_menu():
             user_choice = input('Please choose an option R, P, S, or B: ')
         return user_choice
 
+def comp_weapon():
+    '''Randomly chooses the computer’s throw, displays the
+computer’s choice, and returns an R, P, or S.'''
 
+def find_winner(player, comp):
+    '''Passes in the player’s and computer’s weapon
+choices (R, P, or S), compares the two weapons, displays the result, and then returns
+who is the winner of that round (0=Tie, 1=Player, 2=Computer) based on the
+following rules.
+    a. Rock crushes Scissors
+    b. Scissors cuts Paper
+    c. Paper covers Rock'''
 
-    def comp_weapon():
-        '''Randomly chooses the computer’s throw, displays the
-    computer’s choice, and returns an R, P, or S.'''
-
-    def find_winner(player, comp):
-        '''Passes in the player’s and computer’s weapon
-    choices (R, P, or S), compares the two weapons, displays the result, and then returns
-    who is the winner of that round (0=Tie, 1=Player, 2=Computer) based on the
-    following rules.
-        a. Rock crushes Scissors
-        b. Scissors cuts Paper
-        c. Paper covers Rock'''
-
-    def display_scores(p_score, c_score):
-        '''Passes in the player and computer
-    scores and displays them to the console.'''
+def display_scores(p_score, c_score):
+    '''Passes in the player and computer
+scores and displays them to the console.'''
 
 def main():
     
