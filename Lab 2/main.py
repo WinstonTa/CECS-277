@@ -73,9 +73,8 @@ def main():
         print("3. Quit")
         choice = input("Enter your choice: ")
         
-
-        # score update
         if choice == '1':
+            # play the game
             user_selection = None
             while user_selection != 'B':
                 # game logic
@@ -92,12 +91,15 @@ def main():
                     print(f'You chose {user_selection}\nComputer Chose {computer_selection}\nComputer wins')
                     comp_score += 1
         elif choice == '2':
+            # display the scores
             display_scores(user_score, comp_score)
         elif choice == '3':
+            # quit game and display final scores
             print('Final Score:')
             display_scores(user_score, comp_score)
             break
         else:
+            # handle invalid input
             print('Invalid choice. Please try again')
         
         
