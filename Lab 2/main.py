@@ -61,6 +61,14 @@ def main():
     print("2. Show Score")
     print("3. Quit")
     user_wants = input("Enter your choice: ")
+
+    while user_wants != 3:
+        if user_wants == 1:
+            # play the game
+        elif user_wants == 2:
+            # show the score
+        else:
+            break
     
     # scoreboard
     user_score = 0
