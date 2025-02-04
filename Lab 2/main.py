@@ -54,6 +54,7 @@ scores and displays them to the console.'''
     print(f'Player = {p_score}')
     print(f'Computer = {c_score}')
 
+main()
 
 def main():
     blah=1    
