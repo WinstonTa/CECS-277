@@ -14,9 +14,9 @@ def main():
             bet_amount = check_input.get_int_range("You actually don't have that much money, bet again: ", 1, user_cash)
         
         print('+-----+ +-----+ +-----+')
-        print('| | | | | |')
-        print('| 1 | | 2 | | 3 |')
-        print('| | | | | |')
+        print('|     | |     | |     |')
+        print('|  1  | |  2  | |  3  |')
+        print('|     | |     | |     |')
         print('+-----+ +-----+ +-----+')
 
         user_guess = check_input.get_int_range("Guess where the queen is hidden among the 3 cards (enter a value of 1, 2, or 3): ", 1, 3)
@@ -30,9 +30,9 @@ def main():
             card3 = 'Q'
         
         print('+-----+ +-----+ +-----+')
-        print('| | | | | |')
-        print(f'| {card1} | | {card2} | | {card3} |')
-        print('| | | | | |')
+        print('|     | |     | |     |')
+        print(f'|  {card1}  | |  {card2}  | |  {card3}  |')
+        print('|     | |     | |     |')
         print('+-----+ +-----+ +-----+')
 
         if user_guess == queen_location:
