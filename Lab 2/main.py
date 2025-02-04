@@ -49,28 +49,39 @@ following rules.
     return results
 
 def display_scores(p_score, c_score):
-    '''Passes in the player and computer
-scores and displays them to the console.'''
+    '''Passes in the player and computer scores and displays them to the console.'''
     print(f'Player = {p_score}')
     print(f'Computer = {c_score}')
 
 def main():
-    # game logic
-    user_selection = weapon_menu()
-    computer_selection = comp_weapon()
-    choice = find_winner(user_selection, computer_selection)
+
+    # Display the main menu and get the user's choice
+    print("RPS Menu:")
+    print("1. Play Game")
+    print("2. Show Score")
+    print("3. Quit")
+    user_wants = input("Enter your choice: ")
     
     # scoreboard
     user_score = 0
     comp_score = 0
 
     # score update
-    if choice == 0:
-        pass
-    elif choice == 1:
-        user_score += 1
-    elif choice == 2:
-        comp_score += 1
+    if user_wants == 1:
+        # game logic
+        user_selection = weapon_menu()
+        computer_selection = comp_weapon()
+        choice = find_winner(user_selection, computer_selection)
+        
+        while user_selection != 'B':
+            if choice == 0:
+                pass
+            elif choice == 1:
+                user_score += 1
+            elif choice == 2:
+                comp_score += 1
+    elif user_wants == 2:
+        display_scores()
     else:
         pass
         
