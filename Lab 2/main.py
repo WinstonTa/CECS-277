@@ -68,11 +68,12 @@ def main():
 
     # score update
     if user_wants == 1:
+        
         # game logic
         user_selection = weapon_menu()
         computer_selection = comp_weapon()
         choice = find_winner(user_selection, computer_selection)
-        
+
         while user_selection != 'B':
             if choice == 0:
                 pass
@@ -85,8 +86,6 @@ def main():
     else:
         pass
         
-    # display score
-    display_scores(user_score, comp_score)
 
 main()
 
