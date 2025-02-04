@@ -13,8 +13,8 @@ def weapon_menu():
         '''Prompts the user to input their choice: (R)ock, (P)aper,
     (S)cissors, or (B)ack. Checks that the user’s input is an R, P, S, or B, displays the
     user’s choice, and then returns the inputted value.'''
-        user_choice = input('Choose your weapon: \nR. Rock\nP. Paper\n S. Scissors\nB. Back\n')
-        while user_choice!='R' or user_choice!='P' or user_choice!='S' or user_choice!='B':
+        user_choice = input('Choose your weapon: \nR. Rock\nP. Paper\nS. Scissors\nB. Back\n')
+        while user_choice!='R','P','S','B':
             user_choice = input('Please choose an option R, P, S, or B: ')
         return user_choice
 
@@ -36,9 +36,11 @@ def display_scores(p_score, c_score):
 scores and displays them to the console.'''
 
 def main():
-    
+    blah=1    
 
-main()
+
+
+weapon_menu()
 
 
 
