@@ -55,9 +55,7 @@ def main():
         print(f'Player = {p_score}')
         print(f'Computer = {c_score}')
 
-main():  
-
-
+main()
 
 
 
