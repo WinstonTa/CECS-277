@@ -43,13 +43,14 @@ following rules.
 def display_scores(p_score, c_score):
     '''Passes in the player and computer
 scores and displays them to the console.'''
+    print(f'Player = {p_score}')
+    print(f'Computer = {c_score}')
+
 
 def main():
     blah=1    
 
 
-
-weapon_menu()
 
 
 
