@@ -39,6 +39,14 @@ following rules.
     a. Rock crushes Scissors
     b. Scissors cuts Paper
     c. Paper covers Rock'''
+    results = 0
+    if ((player == 'R' and comp == 'S') or (player == 'S' and comp == 'P') or (player == 'P' and comp == 'R')):
+        results = 1     # player wins these interactions
+    elif ((comp == 'R' and player == 'S') or (comp == 'S' and player == 'P') or (comp == 'P' and player == 'R')):
+         results = 2    # computer wins these interactions
+    else:
+         results = 0   # result is a tie
+    return results
 
 def display_scores(p_score, c_score):
     '''Passes in the player and computer
