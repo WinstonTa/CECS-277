@@ -21,6 +21,15 @@ def weapon_menu():
 def comp_weapon():
     '''Randomly chooses the computer’s throw, displays the
 computer’s choice, and returns an R, P, or S.'''
+    comp_randomizer = random.randint(1, 3)
+    comp_choice = ""
+    if comp_randomizer == 1:
+        comp_choice = 'R'
+    elif comp_randomizer == 2:
+         comp_choice = 'P'
+    else:
+         comp_choice = 'S'
+    return comp_choice
 
 def find_winner(player, comp):
     '''Passes in the player’s and computer’s weapon
