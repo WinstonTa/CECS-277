@@ -9,8 +9,7 @@ and the user can choose to keep playing or quit when they want.
 import check_input_lab2
 import random
 
-def main()
-    def weapon_menu():
+def weapon_menu():
         '''Prompts the user to input their choice: (R)ock, (P)aper,
     (S)cissors, or (B)ack. Checks that the user’s input is an R, P, S, or B, displays the
     user’s choice, and then returns the inputted value.'''
@@ -38,5 +37,10 @@ def main()
         '''Passes in the player and computer
     scores and displays them to the console.'''
 
+def main():
+    
+
 main()
+
+
 
