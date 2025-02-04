@@ -21,6 +21,8 @@ user’s choice, and then returns the inputted value.'''
 def comp_weapon():
     '''Randomly chooses the computer’s throw, displays the
 computer’s choice, and returns an R, P, or S.'''
+    comp_choice = random.randint(1, 3)
+    
 
 def find_winner(player, comp):
     '''Passes in the player’s and computer’s weapon
