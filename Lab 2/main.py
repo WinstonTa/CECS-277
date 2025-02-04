@@ -9,30 +9,34 @@ and the user can choose to keep playing or quit when they want.
 import check_input_lab2
 import random
 
-def weapon_menu():
-    '''Prompts the user to input their choice: (R)ock, (P)aper,
-(S)cissors, or (B)ack. Checks that the user’s input is an R, P, S, or B, displays the
-user’s choice, and then returns the inputted value.'''
-    user_choice = input('Choose your weapon: \nR. Rock\nP. Paper\n S. Scissors\nB. Back\n')
-    while user_choice  
+def main()
+    def weapon_menu():
+        '''Prompts the user to input their choice: (R)ock, (P)aper,
+    (S)cissors, or (B)ack. Checks that the user’s input is an R, P, S, or B, displays the
+    user’s choice, and then returns the inputted value.'''
+        user_choice = input('Choose your weapon: \nR. Rock\nP. Paper\n S. Scissors\nB. Back\n')
+        while user_choice!='R' or user_choice!='P' or user_choice!='S' or user_choice!='B':
+            user_choice = input('Please choose an option R, P, S, or B: ')
+        return user_choice
 
 
 
-def comp_weapon():
-    '''Randomly chooses the computer’s throw, displays the
-computer’s choice, and returns an R, P, or S.'''
-    comp_choice = random.randint(1, 3)
-    
+    def comp_weapon():
+        '''Randomly chooses the computer’s throw, displays the
+    computer’s choice, and returns an R, P, or S.'''
 
-def find_winner(player, comp):
-    '''Passes in the player’s and computer’s weapon
-choices (R, P, or S), compares the two weapons, displays the result, and then returns
-who is the winner of that round (0=Tie, 1=Player, 2=Computer) based on the
-following rules.
-    a. Rock crushes Scissors
-    b. Scissors cuts Paper
-    c. Paper covers Rock'''
+    def find_winner(player, comp):
+        '''Passes in the player’s and computer’s weapon
+    choices (R, P, or S), compares the two weapons, displays the result, and then returns
+    who is the winner of that round (0=Tie, 1=Player, 2=Computer) based on the
+    following rules.
+        a. Rock crushes Scissors
+        b. Scissors cuts Paper
+        c. Paper covers Rock'''
 
-def display_scores(p_score, c_score):
-    '''Passes in the player and computer
-scores and displays them to the console.'''
+    def display_scores(p_score, c_score):
+        '''Passes in the player and computer
+    scores and displays them to the console.'''
+
+main()
+
