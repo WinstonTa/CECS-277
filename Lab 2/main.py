@@ -6,14 +6,14 @@ This project allows the user to play rock paper scissors against a computer. Sco
 and the user can choose to keep playing or quit when they want.
 '''
 
-import check_input-1
+import check_input
 import random
 
-def weapon_menu(prompt):
+def weapon_menu():
     '''Prompts the user to input their choice: (R)ock, (P)aper,
 (S)cissors, or (B)ack. Checks that the user’s input is an R, P, S, or B, displays the
 user’s choice, and then returns the inputted value.'''
-        
+    user_choice = input('Choose your weapon: \nR. Rock\nP. Paper\n S. Scissors\nB. Back\n')
 
 
 
