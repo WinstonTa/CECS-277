@@ -13,14 +13,18 @@ def weapon_menu():
     '''
     Prompts the user to input their choice: (R)ock, (P)aper,
     (S)cissors, or (B)ack. Checks that the user’s input is an R, P, S, or B, displays the
-    user’s choice, and then returns the inputted value.
-    '''
-    user_choice = input('Choose your weapon: \nR. Rock\nP. Paper\nS. Scissors\nB. Back\n')
-
-    while user_choice!='R' and user_choice!='P' and user_choice!= 'S' and user_choice!='B':
-        user_choice = input('Please choose an option R, P, S, or B: ')
-    
-    return user_choice
+    user’s choice, and then returns the inputted value.'''
+        user_choice = input('Choose your weapon: \nR. Rock\nP. Paper\nS. Scissors\nB. Back\n')
+        while user_choice!='R' and user_choice!='P' and user_choice!= 'S' and user_choice!='B':
+            user_choice = input('Please choose an option R, P, S, or B: ')
+        if user_choice == 'R':
+            return 'Rock'
+        elif user_choice == 'P':
+            return 'Paper'
+        elif user_choice == 'S':
+            return 'Scissors'
+        else:
+            return 'B'
 
 def comp_weapon():
     '''
@@ -31,11 +35,11 @@ def comp_weapon():
     comp_randomizer = random.randint(1, 3)
     comp_choice = ""
     if comp_randomizer == 1:
-        comp_choice = 'R'
+        comp_choice = 'Rock'
     elif comp_randomizer == 2:
-        comp_choice = 'P'
+        comp_choice = 'Paper'
     else:
-        comp_choice = 'S'
+        comp_choice = 'Scissors'
     return comp_choice
 
 def find_winner(player, comp):
@@ -47,16 +51,13 @@ def find_winner(player, comp):
 
     a. Rock crushes Scissors
     b. Scissors cuts Paper
-    c. Paper covers Rock
-    '''
-    results = 0
-    if ((player == 'R' and comp == 'S') or (player == 'S' and comp == 'P') or (player == 'P' and comp == 'R')):
-        results = 1     # player wins these interactions
-    elif ((comp == 'R' and player == 'S') or (comp == 'S' and player == 'P') or (comp == 'P' and player == 'R')):
-        results = 2    # computer wins these interactions
+    c. Paper covers Rock'''
+    if ((player == 'Rock' and comp == 'Scissors') or (player == 'Scissors' and comp == 'Paper') or (player == 'Paper' and comp == 'Rock')):
+        return 1     # player wins these interactions
+    elif ((comp == 'Rock' and player == 'Scissors') or (comp == 'Scissors' and player == 'Paper') or (comp == 'Paper' and player == 'Rock')):
+        return 2    # computer wins these interactions
     else:
-        results = 0   # result is a tie
-    return results
+        return 0   # result is a tie
 
 def display_scores(p_score, c_score):
     '''Passes in the player and computer scores and displays them to the console.'''
@@ -64,36 +65,53 @@ def display_scores(p_score, c_score):
     print(f'Computer = {c_score}')
 
 def main():
-    # scoreboard
+
+    # initialize user and computer scores
     user_score = 0
     comp_score = 0
 
-    # Display the main menu and get the user's choice
-    print("RPS Menu: \n1. Play Game\n2. Show Score\n3. Quit")
-    user_wants = int(input("Enter your choice: "))
+    while True:
 
-    while user_wants != 3:
-        if user_wants == 1:
-            # game logic
-            user_selection = weapon_menu()
-            computer_selection = comp_weapon()
-            choice = find_winner(user_selection, computer_selection)
+        # Display the main menu and get the user's choice
+        print("RPS Menu:")
+        print("1. Play Game")
+        print("2. Show Score")
+        print("3. Quit")
+        choice = input("Enter your choice: ")
+        
+        if choice == '1':
+            # play the game
+            user_selection = None
+            while user_selection != 'B':
+                # game logic
+                user_selection = weapon_menu()
+                computer_selection = comp_weapon()
+                winner = find_winner(user_selection, computer_selection)
 
-            if choice == 0:
-                print('Tie!')
-            elif choice == 1:
-                user_score += 1
-            elif choice == 2:
-                comp_score += 1
-        elif user_wants == 2:
-            display_scores()
-        else:
+                if winner == 0:
+                    print(f'You chose {user_selection}\nComputer chose {computer_selection}\nTie')
+                elif winner == 1:
+                    print(f'You chose {user_selection}\nComputer Chose {computer_selection}\nYou win!')
+                    user_score += 1
+                elif winner == 2:
+                    print(f'You chose {user_selection}\nComputer Chose {computer_selection}\nComputer wins')
+                    comp_score += 1
+        elif choice == '2':
+            # display the scores
+            display_scores(user_score, comp_score)
+        elif choice == '3':
+            # quit game and display final scores
+            print('Final Score:')
+            display_scores(user_score, comp_score)
             break
-    
-        display_scores(user_score, comp_score)
-    
+        else:
+            # handle invalid input
+            print('Invalid choice. Please try again')
+        
+        
 
-main()
+if __name__ == '__main__':
+    main()
 
 
 
