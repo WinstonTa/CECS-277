@@ -15,9 +15,9 @@ def weapon_menu():
     user’s choice, and then returns the inputted value.
     '''
 
-    user_choice = input('Choose your weapon: \nR. Rock\nP. Paper\nS. Scissors\nB. Back\n')
-    while user_choice!='R' and user_choice!='P' and user_choice!= 'S' and user_choice!='B':
-        user_choice = input('Please choose an option R, P, S, or B: ')
+    user_choice = input('Choose your weapon: \nR. Rock\nP. Paper\nS. Scissors\nB. Back\n').upper()
+    while user_choice!='R' and user_choice!='P' and user_choice!= 'S' and user_choice !='B':
+        user_choice = input('Please choose an option R, P, S, or B: ').upper()
     if user_choice == 'R':
         return 'Rock'
     elif user_choice == 'P':
