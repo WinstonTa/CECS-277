@@ -53,6 +53,7 @@ def fire_shot(grid, solution, row, col):
 
 
 def main():
+  # display initial board
   game_board = [[' ','1','2','3','4','5'],
                 ['A','~','~','~','~','~'],
                 ['B','~','~','~','~','~'],
@@ -60,6 +61,21 @@ def main():
                 ['D','~','~','~','~','~'],
                 ['E','~','~','~','~','~']]
   display_board(game_board)
+
+  # terminal continues running and on standby for user input
+  while True:
+    # options menu
+    user_choice = check_input.get_int_range("Menu:\n1. Fire Shot\n2. Show Solution\n3. Quit", 1, 3)
+
+    if user_choice == 1:
+      pass
+    elif user_choice == 2:
+      pass
+    elif user_choice == 3:
+      pass
+    else:
+      
+
 
 
 if __name__ == '__main__':
