@@ -39,6 +39,12 @@ def fire_shot(grid, solution, row, col):
   solution boards and the user's entry for the row and column.  Inspects that 
   location on the solution board to determine whether to place a '*' for a 
   hit, or a 'x' for a miss."""
+  if solution[row][col] == '*' and grid[row][col] != '*':
+    grid[row][col] = '*'
+    return True
+  else:
+    grid[row][col] = 'x'
+    return False
 
 
 def main():
