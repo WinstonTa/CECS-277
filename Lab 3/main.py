@@ -32,7 +32,17 @@ def fire_shot(grid, solution, row, col):
 
 
 def main():
-  
+  game_board = [[' ','1','2','3','4','5'],
+                ['A','~','~','~','~','~'],
+                ['B','~','~','~','~','~'],
+                ['C','~','~','~','~','~'],
+                ['D','~','~','~','~','~'],
+                ['E','~','~','~','~','~']]
+  for row in game_board:
+    for item in row:
+      print(item, end = " ")
+    print()
+
 
 if __name__ == '__main__':
     main()
