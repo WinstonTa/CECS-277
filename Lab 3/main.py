@@ -5,13 +5,7 @@ import random
 def display_board(board):
   """Displays the state of the game board as a 5x5 grid where rows are labeled 
   with the letters A-E and columns are labeled with the values 1-5."""
-  game_board = [[' ','1','2','3','4','5'],
-                ['A','~','~','~','~','~'],
-                ['B','~','~','~','~','~'],
-                ['C','~','~','~','~','~'],
-                ['D','~','~','~','~','~'],
-                ['E','~','~','~','~','~']]
-  for row in game_board:
+  for row in board:
     for item in row:
       print(item, end = " ")
     print()
@@ -48,7 +42,13 @@ def fire_shot(grid, solution, row, col):
 
 
 def main():
-  pass
+  game_board = [[' ','1','2','3','4','5'],
+                ['A','~','~','~','~','~'],
+                ['B','~','~','~','~','~'],
+                ['C','~','~','~','~','~'],
+                ['D','~','~','~','~','~'],
+                ['E','~','~','~','~','~']]
+  display_board(game_board)
 
 
 if __name__ == '__main__':
