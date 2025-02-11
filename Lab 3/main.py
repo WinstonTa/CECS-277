@@ -16,7 +16,17 @@ def reset_game():
 def display_board(board):
   """Displays the state of the game board as a 5x5 grid where rows are labeled 
   with the letters A-E and columns are labeled with the values 1-5."""
-  
+  game_board = [[' ','1','2','3','4','5'],
+                ['A','~','~','~','~','~'],
+                ['B','~','~','~','~','~'],
+                ['C','~','~','~','~','~'],
+                ['D','~','~','~','~','~'],
+                ['E','~','~','~','~','~']]
+  for row in game_board:
+    for item in row:
+      print(item, end = " ")
+    print()
+
 
 def get_row():
   """Prompts the user to enter a row letter selection, repeats until user 
@@ -31,16 +41,7 @@ def fire_shot(grid, solution, row, col):
 
 
 def main():
-  game_board = [[' ','1','2','3','4','5'],
-                ['A','~','~','~','~','~'],
-                ['B','~','~','~','~','~'],
-                ['C','~','~','~','~','~'],
-                ['D','~','~','~','~','~'],
-                ['E','~','~','~','~','~']]
-  for row in game_board:
-    for item in row:
-      print(item, end = " ")
-    print()
+  pass
 
 
 if __name__ == '__main__':
