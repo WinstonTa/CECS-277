@@ -21,12 +21,14 @@ def reset_game():
                 ['D','~','~','~','~','~'],
                 ['E','~','~','~','~','~']]
   
-  solution_board = [[' ','1','2','3','4','5'],
-                ['A','~','~','~','~','~'],
-                ['B','~','~','~','~','~'],
-                ['C','~','~','~','~','~'],
-                ['D','~','~','~','~','~'],
-                ['E','~','~','~','~','~']]
+  ship_lc = [[random.randint(1,4)][random.randint(1,4)]]    # ship top left corner
+  ship_rc = [[ship_lc[0]+1]][ship_lc[1]]                    # ship top right corner
+  ship_bl = [[ship_lc[0]][ship_lc[1]+1]]                    # ship bottom left corner
+  ship_br = [[ship_lc[0]+1][ship_lc[1]+1]]                  # ship bottom right corner
+
+  for row in game_board:
+    for col in game_board:
+      if 
   
   return display_board(game_board)
  
