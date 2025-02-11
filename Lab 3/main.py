@@ -28,9 +28,11 @@ def reset_game():
 
   for row in game_board:
     for col in game_board:
-      if 
-  
-  return display_board(game_board)
+      if game_board[row][col] == ship_lc or game_board[row][col] == ship_rc or \
+        game_board[row][col] == ship_bl or game_board[row][col] == ship_br:
+          print('*')
+      else:
+        print('~')
  
 
 
@@ -80,3 +82,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+  
