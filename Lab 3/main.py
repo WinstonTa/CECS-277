@@ -1,23 +1,21 @@
 import check_input
 import random
 
-def display_board(board):
-  """Displays the state of the game board as a 5x5 grid where rows are labeled 
-  with the letters A-E and columns are labeled with the values 1-5."""
+def reset_game():
+  """Resets the game board and the solution board.  Blanks out both boards, 
+  then places a new ship at a random location on the solution board.  
+  Returns both boards."""
   game_board = [[' ','1','2','3','4','5'],
                 ['A','~','~','~','~','~'],
                 ['B','~','~','~','~','~'],
                 ['C','~','~','~','~','~'],
                 ['D','~','~','~','~','~'],
                 ['E','~','~','~','~','~']]
-
-
-def reset_game():
-  """Resets the game board and the solution board.  Blanks out both boards, 
-  then places a new ship at a random location on the solution board.  
-  Returns both boards."""
-  solution = 
  
+    
+def display_board(board):
+  """Displays the state of the game board as a 5x5 grid where rows are labeled 
+  with the letters A-E and columns are labeled with the values 1-5."""
   
 
 def get_row():
