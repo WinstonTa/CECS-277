@@ -41,13 +41,20 @@ def reset_game():
           print(solution_grid[i][j], end = ' ')
       print()'''
   
-  # print blank game board
-  print('  1 2 3 4 5')
+  print(' 1 2 3 4 5')
+  blank_board = [[],[],[],[],[]]
   for i in range(5):
-    print(alpha[i], end=' ')
-    for j in range(5):
-      print('~', end = ' ')
-    print()
+      blank_board[i].append(alpha[i])
+      for j in range(5):
+        blank_board[i].append('~')
+
+  '''# this is if we want to print the blank board
+  for i in range(5):
+      for j in range(6):
+          print(blank_board[i][j],end = ' ')
+      print()'''
+  
+  return solution_grid, blank_board
 
 
 def get_row():
