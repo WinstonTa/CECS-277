@@ -14,31 +14,43 @@ def reset_game():
   """Resets the game board and the solution board.  Blanks out both boards, 
   then places a new ship at a random location on the solution board.  
   Returns both boards."""
-  game_board = [[' ','1','2','3','4','5'],
-                ['A','~','~','~','~','~'],
-                ['B','~','~','~','~','~'],
-                ['C','~','~','~','~','~'],
-                ['D','~','~','~','~','~'],
-                ['E','~','~','~','~','~']]
   
-  ship_lc = [[random.randint(1,4)][random.randint(1,4)]]    # ship top left corner
-  ship_rc = [[ship_lc[0]+1]][ship_lc[1]]                    # ship top right corner
-  ship_bl = [[ship_lc[0]][ship_lc[1]+1]]                    # ship bottom left corner
-  ship_br = [[ship_lc[0]+1][ship_lc[1]+1]]                  # ship bottom right corner
+  ship_lc = [random.randint(0,3),random.randint(0,3)]    # ship top left corner
+  ship_rc = [ship_lc[0],ship_lc[1]+1]                    # ship top right corner
+  ship_bl = [ship_lc[0]+1,ship_lc[1]]                    # ship bottom left corner
+  ship_rl = [ship_lc[0]+1,ship_lc[1]+1]                  # ship bottom right corner
 
-  for row in game_board:
-    for col in game_board:
-      if game_board[row][col] == ship_lc or game_board[row][col] == ship_rc or \
-        game_board[row][col] == ship_bl or game_board[row][col] == ship_br:
-          print('*')
-      else:
-        print('~')
- 
+  alpha = ['A','B','C','D','E']
+
+  # print solution board
+  print('  1 2 3 4 5')
+  for i in range(5):                      # rows
+      print(alpha[i],end=' ')
+      for j in range(5):                  # columns
+          if [i,j] == ship_lc or [i,j] == ship_rc or \
+              [i,j] == ship_bl or [i,j] == ship_rl :
+              print('*', end=' ')
+          else:
+              print('~',end=' ')
+      print()
+  
+  # print blank game board
+  print('  1 2 3 4 5')
+  for i in range(5):
+    print(alpha[i], end=' ')
+    for j in range(5):
+      print('~', end = ' ')
+    print()
 
 
 def get_row():
   """Prompts the user to enter a row letter selection, repeats until user 
   enters a valid selection, returns that value."""
+  row_choice = input("Enter a Row Letter (A-E): ").upper()
+  while row_choice!='A' and row_choice!='B' and row_choice!= 'C' and \
+    row_choice !='D' and row_choice != 'E':
+    row_choice = input('Please choose an option A-E: ').upper()
+  return row_choice
 
   
 def fire_shot(grid, solution, row, col):
@@ -62,21 +74,29 @@ def main():
                 ['C','~','~','~','~','~'],
                 ['D','~','~','~','~','~'],
                 ['E','~','~','~','~','~']]
-  display_board(game_board)
+  game_board = display_board(game_board)
 
   # terminal continues running and on standby for user input
   while True:
     # options menu
-    user_choice = check_input.get_int_range("Menu:\n1. Fire Shot\n2. Show Solution\n3. Quit", 1, 3)
+    user_choice = check_input.get_int_range("Menu:\n1. Fire Shot\n2. Show Solution\n3. Quit\n", 1, 3)
 
     if user_choice == 1:
-      pass
+      # user fires shot
+      user_row = get_row()
+      user_col = check_input.get_int_range("Enter a Column Number (1-5): ",1,5)
+
     elif user_choice == 2:
-      pass
+      # shows solution and resets game
+      reset_game()
+
     elif user_choice == 3:
-      pass
+      # quits game
+      break
+    
     else:
-      pass
+      # handle invalid input
+      print('Invalid choice. Please try again')
 
 
 
