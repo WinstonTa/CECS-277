@@ -15,9 +15,17 @@ def display_board(board):
 
   Args:
     board (List[List[str]]): any 2D list board that the program wishes to display"""
+  print(' 1 2 3 4 5')
+  alpha = ['A','B','C','D','E']
+  rows = 0
+  cols = 0 
+
   for row in board:
+    print(alpha[rows],end = ' ')
     for item in row:
-      print(item, end = " ")
+      print(board[rows][cols], end = " ")
+      cols += 1
+    rows += 1
     print()
     
 def reset_game():
@@ -26,16 +34,17 @@ def reset_game():
   Returns both boards."""
   # blank board, game can be reset to this state
   game_board = []
-  game_board.append(['  1 2 3 4 5'])
+  solution_board = []
 
-  alpha = ['A','B','C','D','E']
-  blank_board = '~~~~~'
+  blank_board = ['~','~','~','~','~']
 
   for i in range(5):
-      game_board.append(f"{alpha[i]}{blank_board}")
+      game_board.append(blank_board)
+      solution_board.append(blank_board)
   
   # create the battleship
-  ship_x, ship_y = random.randint(1, 4), random.randint(1, 3)
+  # random.randint(0, 3), random.randint(0, 3)
+  ship_x, ship_y = [0, 0]
   solution_board[ship_x][ship_y] = '*'                    # ship top left corner
   solution_board[ship_x][ship_y + 1] = '*'                # ship top right corner
   solution_board[ship_x + 1][ship_y] = '*'                # ship bottom left corner
@@ -50,8 +59,8 @@ def reset_game():
   # game_board = blank_board
   
   # row letters + empty solution grid as a 2D list
-  solution_board = [[' ', '1', '2', '3', '4', '5'], [], [], [], [], []]
-  columns = [' ', 'A','B','C','D','E']
+  # solution_board = [[' ', '1', '2', '3', '4', '5'], [], [], [], [], []]
+  # columns = [' ', 'A','B','C','D','E']
 
   # initialize solution grid with battleship placement
   # for i in range(1, len(solution_board)):                      # rows
