@@ -33,10 +33,16 @@ def reset_game():
                 ['E','~','~','~','~','~']]
   
   # create the battleship
-  ship_lc = [random.randint(1, 4), random.randint(1, 3)]  # ship top left corner
-  ship_rc = [ship_lc[0], ship_lc[1] + 1]                  # ship top right corner
-  ship_bl = [ship_lc[0] + 1, ship_lc[1]]                  # ship bottom left corner
-  ship_rl = [ship_lc[0] + 1, ship_lc[1] + 1]              # ship bottom right corner
+  ship_x, ship_y = random.randint(1, 4), random.randint(1, 3)
+  solution_board[ship_x][ship_y] = '*'                    # ship top left corner
+  solution_board[ship_x][ship_y + 1] = '*'                # ship top right corner
+  solution_board[ship_x + 1][ship_y] = '*'                # ship bottom left corner
+  solution_board[ship_x +1][ship_y + 1] = '*'             # ship bottom right corner
+
+  # ship_lc = [random.randint(1, 4), random.randint(1, 3)]  # ship top left corner
+  # ship_rc = [ship_lc[0], ship_lc[1] + 1]                  # ship top right corner
+  # ship_bl = [ship_lc[0] + 1, ship_lc[1]]                  # ship bottom left corner
+  # ship_rl = [ship_lc[0] + 1, ship_lc[1] + 1]              # ship bottom right corner
 
   # initalize game board, initialize it to the blank board
   game_board = blank_board
@@ -46,14 +52,14 @@ def reset_game():
   columns = [' ', 'A','B','C','D','E']
 
   # initialize solution grid with battleship placement
-  for i in range(1, len(solution_board)):                      # rows
-      solution_board[i].append(columns[i])
-      for j in range(len(solution_board) - 1):                  # columns
-          if [i,j] == ship_lc or [i,j] == ship_rc or \
-              [i,j] == ship_bl or [i,j] == ship_rl :
-              solution_board[i].append('*')
-          else:
-              solution_board[i].append('~')
+  # for i in range(1, len(solution_board)):                      # rows
+  #     solution_board[i].append(columns[i])
+  #     for j in range(len(solution_board) - 1):                  # columns
+  #         if [i,j] == ship_lc or [i,j] == ship_rc or \
+  #             [i,j] == ship_bl or [i,j] == ship_rl :
+  #             solution_board[i].append('*')
+  #         else:
+  #             solution_board[i].append('~')
 
 
   # return 2 variables: first the game board, second the solution board
