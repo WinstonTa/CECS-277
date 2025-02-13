@@ -15,10 +15,10 @@ def reset_game():
   then places a new ship at a random location on the solution board.  
   Returns both boards."""
   
-  ship_lc = [random.randint(0,3),random.randint(0,3)]    # ship top left corner
-  ship_rc = [ship_lc[0],ship_lc[1]+1]                    # ship top right corner
-  ship_bl = [ship_lc[0]+1,ship_lc[1]]                    # ship bottom left corner
-  ship_rl = [ship_lc[0]+1,ship_lc[1]+1]                  # ship bottom right corner
+  ship_lc = [random.randint(0,3), random.randint(0,3)]    # ship top left corner
+  ship_rc = [ship_lc[0], ship_lc[1] + 1]                  # ship top right corner
+  ship_bl = [ship_lc[0] + 1, ship_lc[1]]                  # ship bottom left corner
+  ship_rl = [ship_lc[0] + 1, ship_lc[1] + 1]              # ship bottom right corner
 
   alpha = ['A','B','C','D','E']
 
@@ -74,7 +74,7 @@ def main():
                 ['C','~','~','~','~','~'],
                 ['D','~','~','~','~','~'],
                 ['E','~','~','~','~','~']]
-  game_board = display_board(game_board)
+  display_board(game_board)
 
   # terminal continues running and on standby for user input
   while True:
@@ -84,7 +84,8 @@ def main():
     if user_choice == 1:
       # user fires shot
       user_row = get_row()
-      user_col = check_input.get_int_range("Enter a Column Number (1-5): ",1,5)
+      user_col = check_input.get_int_range("Enter a Column Number (1-5): ", 1, 5)
+      # fire_shot(game_board, solution, user_row, user_col)
 
     elif user_choice == 2:
       # shows solution and resets game
