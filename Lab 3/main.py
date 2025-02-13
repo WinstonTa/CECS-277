@@ -25,12 +25,14 @@ def reset_game():
   then places a new ship at a random location on the solution board.  
   Returns both boards."""
   # blank board, game can be reset to this state
-  blank_board = [[' ','1','2','3','4','5'],
-                ['A','~','~','~','~','~'],
-                ['B','~','~','~','~','~'],
-                ['C','~','~','~','~','~'],
-                ['D','~','~','~','~','~'],
-                ['E','~','~','~','~','~']]
+  game_board = []
+  game_board.append(['  1 2 3 4 5'])
+
+  alpha = ['A','B','C','D','E']
+  blank_board = '~~~~~'
+
+  for i in range(5):
+      game_board.append(f"{alpha[i]}{blank_board}")
   
   # create the battleship
   ship_lc = [random.randint(1, 4), random.randint(1, 3)]  # ship top left corner
@@ -39,7 +41,7 @@ def reset_game():
   ship_rl = [ship_lc[0] + 1, ship_lc[1] + 1]              # ship bottom right corner
 
   # initalize game board, initialize it to the blank board
-  game_board = blank_board
+  # game_board = blank_board
   
   # row letters + empty solution grid as a 2D list
   solution_board = [[' ', '1', '2', '3', '4', '5'], [], [], [], [], []]
