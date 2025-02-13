@@ -24,15 +24,22 @@ def reset_game():
 
   # print solution board
   print('  1 2 3 4 5')
+  alpha = ['A','B','C','D','E']
+  solution_grid = [[],[],[],[],[],[]]
   for i in range(5):                      # rows
-      print(alpha[i],end=' ')
+      solution_grid[i].append(alpha[i])
       for j in range(5):                  # columns
           if [i,j] == ship_lc or [i,j] == ship_rc or \
               [i,j] == ship_bl or [i,j] == ship_rl :
-              print('*', end=' ')
+              solution_grid[i].append('*')
           else:
-              print('~',end=' ')
-      print()
+              solution_grid[i].append('~')
+
+  '''# this is if we want to print the solution board
+  for i in range(5):
+      for j in range(6):
+          print(solution_grid[i][j], end = ' ')
+      print()'''
   
   # print blank game board
   print('  1 2 3 4 5')
@@ -94,7 +101,7 @@ def main():
     elif user_choice == 3:
       # quits game
       break
-    
+
     else:
       # handle invalid input
       print('Invalid choice. Please try again')
