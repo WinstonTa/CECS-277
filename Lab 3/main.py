@@ -144,11 +144,13 @@ def main():
       if hit_count == 4:
          print("\nYou won!\n")
          game_board, solution_board = reset_game()
+         display_board(game_board)
     
     elif user_choice == 2:
       # shows solution and resets game
       display_board(solution_board)
       game_board, solution_board = reset_game()
+      display_board(game_board)
 
     elif user_choice == 3:
       # quits game
