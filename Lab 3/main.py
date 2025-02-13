@@ -83,6 +83,13 @@ def main():
                 ['E','~','~','~','~','~']]
   display_board(game_board)
 
+  solution_board = [[' ','1','2','3','4','5'],
+                    ['A','~','~','~','~','~'],
+                    ['B','~','~','~','~','~'],
+                    ['C','~','~','~','~','~'],
+                    ['D','~','~','~','~','~'],
+                    ['E','~','~','~','~','~']]
+
   # terminal continues running and on standby for user input
   while True:
     # options menu
