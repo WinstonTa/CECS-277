@@ -58,7 +58,7 @@ def reset_game():
               solution_board[i].append('~')
 
 
-  # return 2 variables: first the solution grid, second the blank board
+  # return 2 variables: first the game board, second the solution board
   return game_board, solution_board
 
 
