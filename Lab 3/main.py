@@ -17,9 +17,7 @@ def display_board(board):
     board (List[List[str]]): any 2D list board that the program wishes to display"""
   for row in board:
     for item in row:
-      print(board[rows][cols], end = " ")
-      cols += 1
-    rows += 1
+      print(item, end = " ")
     print()
     
 def reset_game():
@@ -27,23 +25,14 @@ def reset_game():
   then places a new ship at a random location on the solution board.  
   Returns both boards."""
   # blank board, game can be reset to this state
-  game_board = []
-  solution_board = []
-
-  blank_board = ['~','~','~','~','~']
-
-  for i in range(5):
-      game_board.append(blank_board)
-      solution_board.append(blank_board)
+  blank_board = [[' ','1','2','3','4','5'],
+                ['A','~','~','~','~','~'],
+                ['B','~','~','~','~','~'],
+                ['C','~','~','~','~','~'],
+                ['D','~','~','~','~','~'],
+                ['E','~','~','~','~','~']]
   
   # create the battleship
-  # random.randint(0, 3), random.randint(0, 3)
-  ship_x, ship_y = [0, 0]
-  solution_board[ship_x][ship_y] = '*'                    # ship top left corner
-  solution_board[ship_x][ship_y + 1] = '*'                # ship top right corner
-  solution_board[ship_x + 1][ship_y] = '*'                # ship bottom left corner
-  solution_board[ship_x +1][ship_y + 1] = '*'             # ship bottom right corner
-
   ship_lc = [random.randint(1, 4), random.randint(1, 3)]  # ship top left corner
   ship_rc = [ship_lc[0], ship_lc[1] + 1]                  # ship top right corner
   ship_bl = [ship_lc[0] + 1, ship_lc[1]]                  # ship bottom left corner
@@ -67,7 +56,7 @@ def reset_game():
               solution_board[i].append('~')
 
 
-  # return 2 variables: first the game board, second the solution board
+  # return 2 variables: first the solution grid, second the blank board
   return game_board, solution_board
 
 
@@ -168,5 +157,4 @@ def main():
       break
 
 if __name__ == '__main__':
-    main()
-  
+   main()
