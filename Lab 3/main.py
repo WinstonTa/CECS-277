@@ -15,7 +15,13 @@ def display_board(board):
 
   Args:
     board (List[List[str]]): any 2D list board that the program wishes to display"""
+  alpha = ['A', 'B', 'C', 'D', 'E']
+  row_counter = 0
+  print("  1 2 3 4 5")
   for row in board:
+    print(row_counter)
+    print(alpha[row_counter], end = ' ')
+    row_counter += 1
     for item in row:
       print(item, end = " ")
     print()
