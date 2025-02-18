@@ -6,7 +6,7 @@ Description: [Lab 4 project description]
 
 import random
 
-def read_file_to_dict():
+def read_file_to_dict(file_name):
     """
     1. This function reads the contents of a file (in this case, StateCapitals.txt) and
     converts it into a dictionary.
@@ -14,26 +14,48 @@ def read_file_to_dict():
     3. The function strips any extra whitespace, splits the line into state and capital,
     and stores them in a dictionary where the state is the key and the capital is the value.
     """
-    pass
+    file = open(file_name).readlines()
+    capital_list = list()
+    capital_dictionary = dict()
 
-def get_random_state():
+    for line in file:
+        item = line.strip("\n").split(",")
+        capital_list.append(item)
+    
+    for row in capital_list:
+        capital_dictionary[row[0]] = row[1]
+    
+    return capital_dictionary
+
+def get_random_state(states: dict) -> tuple:
     """
     1. This function takes the dictionary of states and capitals as input.
     2. It randomly selects a state and its corresponding capital from the dictionary and
     returns them as a tuple.
     """
-    pass
+    pairing = random.choice(list(states.items()))
+    return pairing
 
-def get_random_choices():
+def get_random_choices(states: dict, correct_capital: str) -> list:
     """
     1. This function generates a list of four possible answers for a quiz question.
     2. It starts with the correct capital and then randomly selects three other capitals
     from the list of all capitals, ensuring they are not the same as the correct capital or each other.
     3. Finally, it shuffles the list to randomize the order of the answers.
     """
-    pass
+    possible_answers = list()
+    all_capitals = list(states.keys())
+    random.shuffle(all_capitals)
 
-def ask_question():
+    for i in range(3):
+        possible_answers.append(all_capitals[i])
+
+    possible_answers.append(correct_capital)
+    random.shuffle(possible_answers)
+
+    return possible_answers
+
+def ask_question(correct_state: str, possible_answers: list):
     """
     1. This function displays the quiz question to the user, showing the state and the four
     possible capitals.
@@ -41,7 +63,35 @@ def ask_question():
     3. If the input is valid, it converts the selection to a corresponding index
     (0 for A, 1 for B, etc.) and returns it.
     """
-    pass
+    answer_index = 0
+
+    print(f"The capital of {correct_state} is:")
+    print(f"    A. {possible_answers[0]}    B. {possible_answers[1]}\
+              C. {possible_answers[2]}    D. {possible_answers[3]}")
+    
+    valid = False
+
+    while not valid:
+        try:
+            user_input = input("Enter selection: ").upper()
+            if user_input == ('A' or 'B' or 'C' or 'D'):
+                valid = True
+            else:
+                print("Invalid input. Input choice A-D.")
+        except ValueError:
+            print("Invalid input. Input choice A-D.")
+    
+    match user_input:
+        case 'A':
+            answer_index = 0
+        case 'B':
+            answer_index = 1
+        case 'C':
+            answer_index = 2
+        case 'D':
+            answer_index = 3
+    
+    return answer_index
 
 def main():
     """
@@ -55,7 +105,12 @@ def main():
     8. Checks if the user's answer is correct and updates the score accordingly.
     9. Finally, it prints the user's score at the end of the quiz.
     """
-    pass
+    states_and_capitals = read_file_to_dict("Lab 4\\statecapitals.txt")
+    random_pair = get_random_state(states_and_capitals)
+    selected_capital = random_pair[1]
+    random_capitals = get_random_choices(states_and_capitals, selected_capital)
+    print(random_capitals)
+
 
 if __name__ == "__main__":
     main()
