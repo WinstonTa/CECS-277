@@ -1,18 +1,25 @@
 '''
 Name(s): Winston Ta, Mindy Yun
 Date: 2025/02/20
-Description: [Lab 4 project description]
+Description: This project allows users to test their knowledge on US states and capitals! Over the course of 10 questions,
+the user will be prompted to answer from a multiple choice selection choices A-D, with a state given in the question, to
+respond with the corresponding capital. At the end of the 10 questions, they get a final score.
 '''
 
 import random
 
-def read_file_to_dict(file_name):
+def read_file_to_dict(file_name: str) -> dict:
     """
     1. This function reads the contents of a file (in this case, StateCapitals.txt) and
     converts it into a dictionary.
     2. Each line in the file is expected to be in the format State,Capital.
     3. The function strips any extra whitespace, splits the line into state and capital,
     and stores them in a dictionary where the state is the key and the capital is the value.
+
+    Args:
+        file_name (str): the path to the file name, expressed as a string
+    Returns:
+        The dictionary containing all the states and capitals in the form of a (key, value) pair
     """
     file = open(file_name).readlines()
     capital_list = list()
@@ -32,6 +39,11 @@ def get_random_state(states: dict) -> tuple:
     1. This function takes the dictionary of states and capitals as input.
     2. It randomly selects a state and its corresponding capital from the dictionary and
     returns them as a tuple.
+
+    Args:
+        states (dict): the dictionary of states and capitals
+    Returns:
+        A tuple of a random (state, capital) pairing
     """
     pairing = random.choice(list(states.items()))
     return pairing
@@ -42,9 +54,15 @@ def get_random_choices(states: dict, correct_capital: str) -> list:
     2. It starts with the correct capital and then randomly selects three other capitals
     from the list of all capitals, ensuring they are not the same as the correct capital or each other.
     3. Finally, it shuffles the list to randomize the order of the answers.
+
+    Args:
+        states (dict): the dictionary of states and capitals
+        correct_capital (str): the correct capital choice which will be appended to a list of 4 choices
+    Returns:
+        A list of 4 capital choices: 1 correct, 3 incorrect
     """
     possible_answers = list()
-    all_capitals = list(states.keys())
+    all_capitals = list(states.values())
     random.shuffle(all_capitals)
 
     for i in range(3):
@@ -62,6 +80,12 @@ def ask_question(correct_state: str, possible_answers: list) -> int:
     2. It prompts the user to enter their selection (A, B, C, or D) and validates the input.
     3. If the input is valid, it converts the selection to a corresponding index
     (0 for A, 1 for B, etc.) and returns it.
+
+    Args:
+        correct_state (str): the correct state by which the user will attempt to find its matching capital
+        possible_answers (list): the list of 4 possible capital choices, of which 1 is correct, and 3 incorrect
+    Returns:
+        An integer value corresponding to the user's choice (0 - A, 1 - B, 2 - C, 3 - D)
     """
     answer_index = 0
     valid = False
@@ -132,10 +156,6 @@ def main():
         questions += 1
 
     print(f"End of test. You got {points} correct.")
-
-    '''Good news! All 4 methods basically work 100% well (at least from what I've tested), so I think
-    all we need to do is to just implement main() and have the 10 questions, proper console messages,
-    and I think we'll be good after that'''
 
 
 if __name__ == "__main__":
