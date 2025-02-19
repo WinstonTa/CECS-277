@@ -118,13 +118,13 @@ def main():
         # get 4 possible capital answers: 1 correct, 3 incorrect, list shuffled
         random_capitals = get_random_choices(states_and_capitals, random_pair[1])
 
+        print(f'{questions}.', end = ' ')
         user_choice = ask_question(random_pair[0], random_capitals)
         if random_capitals[user_choice] == (random_pair[1]):
             print("Correct!")
             points += 1
         else:
             print(f"Incorrect. The correct answer is {random_pair[1]}")
-        #print(user_choice)
 
         questions += 1
 
