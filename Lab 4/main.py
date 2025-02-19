@@ -55,7 +55,7 @@ def get_random_choices(states: dict, correct_capital: str) -> list:
 
     return possible_answers
 
-def ask_question(correct_state: str, possible_answers: list):
+def ask_question(correct_state: str, possible_answers: list) -> int:
     """
     1. This function displays the quiz question to the user, showing the state and the four
     possible capitals.
@@ -64,17 +64,15 @@ def ask_question(correct_state: str, possible_answers: list):
     (0 for A, 1 for B, etc.) and returns it.
     """
     answer_index = 0
-
-    print(f"The capital of {correct_state} is:")
-    print(f"    A. {possible_answers[0]}    B. {possible_answers[1]}\
-              C. {possible_answers[2]}    D. {possible_answers[3]}")
-    
     valid = False
 
+    print(f"The capital of {correct_state} is:")
+    print(f"    A. {possible_answers[0]}    B. {possible_answers[1]}    C. {possible_answers[2]}    D. {possible_answers[3]}")
+    
     while not valid:
         try:
             user_input = input("Enter selection: ").upper()
-            if user_input == ('A' or 'B' or 'C' or 'D'):
+            if user_input in ('A', 'B', 'C', 'D'):
                 valid = True
             else:
                 print("Invalid input. Input choice A-D.")
@@ -105,11 +103,22 @@ def main():
     8. Checks if the user's answer is correct and updates the score accordingly.
     9. Finally, it prints the user's score at the end of the quiz.
     """
+    # read the contents of the statecapitals.txt file
     states_and_capitals = read_file_to_dict("Lab 4\\statecapitals.txt")
+
+    # get a random tuple of (state, capital)
     random_pair = get_random_state(states_and_capitals)
-    selected_capital = random_pair[1]
-    random_capitals = get_random_choices(states_and_capitals, selected_capital)
+
+    # get 4 possible capital answers: 1 correct, 3 incorrect, list shuffled
+    random_capitals = get_random_choices(states_and_capitals, random_pair[1])
+
     print(random_capitals)
+    user_choice = ask_question(random_pair[0], random_capitals)
+    print(user_choice)
+
+    '''Good news! All 4 methods basically work 100% well (at least from what I've tested), so I think
+    all we need to do is to just implement main() and have the 10 questions, proper console messages,
+    and I think we'll be good after that'''
 
 
 if __name__ == "__main__":
