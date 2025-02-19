@@ -119,9 +119,9 @@ def main():
         random_capitals = get_random_choices(states_and_capitals, random_pair[1])
 
         user_choice = ask_question(random_pair[0], random_capitals)
-        if user_choice == (random_pair[1]):
+        if random_capitals[user_choice] == (random_pair[1]):
             print("Correct!")
-            score += 1
+            points += 1
         else:
             print(f"Incorrect. The correct answer is {random_pair[1]}")
         #print(user_choice)
