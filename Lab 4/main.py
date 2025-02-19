@@ -106,15 +106,29 @@ def main():
     # read the contents of the statecapitals.txt file
     states_and_capitals = read_file_to_dict("Lab 4\\statecapitals.txt")
 
-    # get a random tuple of (state, capital)
-    random_pair = get_random_state(states_and_capitals)
+    print("- State Capitals Quiz -")
+    questions = 1
+    points = 0
 
-    # get 4 possible capital answers: 1 correct, 3 incorrect, list shuffled
-    random_capitals = get_random_choices(states_and_capitals, random_pair[1])
+    while questions <= 10:
 
-    print(random_capitals)
-    user_choice = ask_question(random_pair[0], random_capitals)
-    print(user_choice)
+        # get a random tuple of (state, capital)
+        random_pair = get_random_state(states_and_capitals)
+
+        # get 4 possible capital answers: 1 correct, 3 incorrect, list shuffled
+        random_capitals = get_random_choices(states_and_capitals, random_pair[1])
+
+        user_choice = ask_question(random_pair[0], random_capitals)
+        if user_choice == (random_pair[1]):
+            print("Correct!")
+            score += 1
+        else:
+            print(f"Incorrect. The correct answer is {random_pair[1]}")
+        #print(user_choice)
+
+        questions += 1
+
+    print(f"End of test. You got {points} correct.")
 
     '''Good news! All 4 methods basically work 100% well (at least from what I've tested), so I think
     all we need to do is to just implement main() and have the 10 questions, proper console messages,
