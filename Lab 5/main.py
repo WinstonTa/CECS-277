@@ -26,6 +26,18 @@ def place_rect(grid, rect):
     the rectangle (x, y) on the grid, overwrite the ‘.’ characters with ‘*’s using the width and
     height of the rectangle."""
 
+    x, y = rect.get_coords()
+    w, h = rect.get_dimensions()
+
+    if x < 0 or y < 0 or x + w > 20 or y + h > 20:
+        print("ERROR: Rectangle does not fit in the grid.")
+        return
+    
+    for i in range(h):
+        for j in range(w):
+            grid[y + i][x + j] = '*'
+
+
 def main():
     gridspace=[]
     for i in range(20):
