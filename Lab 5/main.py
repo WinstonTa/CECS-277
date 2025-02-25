@@ -12,14 +12,14 @@ def display_grid(grid):
     for row in grid:
         for item in row:
             print(item, end = " ")
-            print()
+        print()
 
 def reset_grid(grid):
     """pass in the grid and overwrite the contents with all ‘.’s"""
     for row in grid:
         for item in row:
             print(".", end = " ")
-            print()
+        print()
 
 def place_rect(grid, rect):
     """pass in the grid and the rectangle. At the location of
@@ -49,9 +49,9 @@ def main():
     #     ['.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.'],
     #     ['.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.'],]
     gridspace=[]
-    for i in range(19):
+    for i in range(20):
         lst=[]
-        for j in range(19):
+        for j in range(20):
             lst.append(". ")
         gridspace.append(lst)
     
