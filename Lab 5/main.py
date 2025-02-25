@@ -50,19 +50,37 @@ def main():
     rect_height=check_input.get_int_range("Enter rectangle height (1-5): ",1,5)
     our_rectangle = rectangle.Rectangle(rect_width,rect_height)
 
+    place_rect(gridspace, our_rectangle)
     display_grid(gridspace)
     
     while True:
         user_choice=check_input.get_int_range("Enter Direction:\n1.Up\n2.Down\n3.Left\n4.Right\n5.Quit\n",1,5)
         
+        # user chooses to move rectangle up
         if user_choice == 1:
-            rectangle.move_up()    
+            our_rectangle.move_up()
+            place_rect(gridspace, our_rectangle)
+            display_grid(gridspace)  
+
+        # user chooses to move rectangle up  
         elif user_choice == 2:
-            rectangle.move_down()
+            our_rectangle.move_down()
+            place_rect(gridspace, our_rectangle)
+            display_grid(gridspace)
+
+        # user chooses to move rectangle up
         elif user_choice == 3:
-            rectangle.move_left()
+            our_rectangle.move_left()
+            place_rect(gridspace, our_rectangle)
+            display_grid(gridspace)
+
+        # user chooses to move rectangle up
         elif user_choice == 4:
-            rectangle.move_right()
+            our_rectangle.move_right()
+            place_rect(gridspace, our_rectangle)
+            display_grid(gridspace)
+
+        # user chooses to move quit program
         else:
             return False
 
