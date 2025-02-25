@@ -38,6 +38,8 @@ def place_rect(grid, rect):
 
 
 def main():
+
+    # create blank grid
     gridspace=[]
     for i in range(20):
         lst=[]
@@ -45,10 +47,14 @@ def main():
             lst.append(". ")
         gridspace.append(lst)
     
+    # take input from user for rectangle width and height
     rect_width=check_input.get_int_range("Enter rectangle width (1-5): ",1,5)
     rect_height=check_input.get_int_range("Enter rectangle height (1-5): ",1,5)
+
+    # create rectangle object
     our_rectangle = rectangle.Rectangle(rect_width,rect_height)
 
+    # place rectangle on grid
     place_rect(gridspace, our_rectangle)
     display_grid(gridspace)
     
