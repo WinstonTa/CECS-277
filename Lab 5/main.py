@@ -34,7 +34,7 @@ def place_rect(grid, rect):
     
     for i in range(h):
         for j in range(w):
-            grid[y + i][x + j] = '*'
+            grid[y + i][x + j] = '* '
 
 
 def main():
