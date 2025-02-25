@@ -17,8 +17,8 @@ def display_grid(grid):
 def reset_grid(grid):
     """pass in the grid and overwrite the contents with all ‘.’s"""
     for row in grid:
-        for item in row:
-            grid[row][item] = '.'
+        for col in row:
+            grid[row][col] = '.'
 
 def place_rect(grid, rect):
     """pass in the grid and the rectangle. At the location of
