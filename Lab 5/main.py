@@ -34,8 +34,22 @@ def main():
             lst.append(". ")
         gridspace.append(lst)
     
-    display_grid(gridspace)
+    rect_width=check_input.get_int_range("Enter rectangle width (1-5): ",1,5)
+    rect_height=check_input.get_int_range("Enter rectangle height (1-5): ")
 
+    while True:
+        user_choice=check_input.get_int_range("Enter Direction:\n1.Up\n2.Down\n3.Left\n4.Right\n5.Quit",1,5)
+        
+        if user_choice == 1:
+            pass     
+        elif user_choice == 2:
+            pass
+        elif user_choice == 3:
+            pass
+        elif user_choice == 4:
+            pass
+        else:
+            return False
 
 
 if __name__ == "__main__":
