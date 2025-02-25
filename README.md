@@ -8,3 +8,5 @@ CECS 277 homework and projects
 ## Lab 3 - Battleship
 
 ## Lab 4 - State Capitals Quiz
+
+## Lab 5 - Moving Rectangle
