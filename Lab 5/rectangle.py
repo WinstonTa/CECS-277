@@ -17,16 +17,28 @@ class Rectangle:
     
     def move_up(self):
         """moves the rectangle up one row"""
-        self.y -= 1
+        if self.y == 0:
+            print("The rectangle is already at the top corner -- it can't be moved up")
+        else:
+            self.y -= 1
     
     def move_down(self):
         """moves the rectangle down one row"""
-        self.y += 1
+        if self.y + self.h >= 20:
+            print("The rectangle is already at the bottom corner -- it can't be moved down")
+        else:
+            self.y += 1
     
     def move_left(self):
         """moves the rectangle left one column"""
-        self.x -= 1
+        if self.x == 0:
+            print("The rectangle is already at the left corner -- it can't be moved left")
+        else:
+            self.x -= 1
 
     def move_right(self):
         """moves the rectangle right one column"""
-        self.x += 1
+        if self.x + self.w >= 20:
+            print("The rectangle is already at the right corner -- it can't be moved right")
+        else:
+            self.x += 1
