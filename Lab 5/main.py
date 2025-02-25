@@ -7,31 +7,50 @@ move in the corresponding direction of the user's choice.
 import check_input
 import rectangle
 
-def display_grid(grid):
-    """"pass in the grid and display the contents of the grid."""
+def display_grid(grid: list[list[str]]):
+    """"
+    pass in the grid and display the contents of the grid.
+
+    Args:
+        grid (List[List[str]]): the 2D grid that the rectangle can be placed in
+    """
     for row in grid:
         for item in row:
             print(item, end = " ")
         print()
 
-def reset_grid(grid):
-    """pass in the grid and overwrite the contents with all ‘.’s"""
+def reset_grid(grid: list[list[str]]):
+    """
+    pass in the grid and overwrite the contents with all ‘.’s
+
+    Args:
+        grid (List[List[str]]): the 2D grid that will be reset
+    """
     for i in range(len(grid)):
         for j in range(len(grid[i])):
             grid[i][j] = '. '
 
-def place_rect(grid, rect):
-    """pass in the grid and the rectangle. At the location of
+def place_rect(grid: list[list[str]], rect: rectangle):
+    """
+    pass in the grid and the rectangle. At the location of
     the rectangle (x, y) on the grid, overwrite the ‘.’ characters with ‘*’s using the width and
-    height of the rectangle."""
+    height of the rectangle.
 
+    Args:
+        grid (List[List[str]]): the 2D grid that the rectangle will be placed in
+        rect (Rectangle): rectangle object that will be inserted into the grid
+    """
+
+    # get rectangle info
     x, y = rect.get_coords()
     w, h = rect.get_dimensions()
 
+    # bound check
     if x < 0 or y < 0 or x + w > 20 or y + h > 20:
         print("ERROR: Rectangle does not fit in the grid.")
         return
     
+    # place rectangle in grid
     for i in range(h):
         for j in range(w):
             grid[y + i][x + j] = '* '
