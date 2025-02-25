@@ -47,20 +47,22 @@ def main():
         gridspace.append(lst)
     
     rect_width=check_input.get_int_range("Enter rectangle width (1-5): ",1,5)
-    rect_height=check_input.get_int_range("Enter rectangle height (1-5): ")
-    rect = rectangle.Rectangle(rect_width,rect_height)
+    rect_height=check_input.get_int_range("Enter rectangle height (1-5): ",1,5)
+    our_rectangle = rectangle.Rectangle(rect_width,rect_height)
 
+    display_grid(gridspace)
+    
     while True:
-        user_choice=check_input.get_int_range("Enter Direction:\n1.Up\n2.Down\n3.Left\n4.Right\n5.Quit",1,5)
+        user_choice=check_input.get_int_range("Enter Direction:\n1.Up\n2.Down\n3.Left\n4.Right\n5.Quit\n",1,5)
         
         if user_choice == 1:
-            rectangle.move_up    
+            rectangle.move_up()    
         elif user_choice == 2:
-            rectangle.move_down
+            rectangle.move_down()
         elif user_choice == 3:
-            rectangle.move_left
+            rectangle.move_left()
         elif user_choice == 4:
-            rectangle.move_right
+            rectangle.move_right()
         else:
             return False
 
