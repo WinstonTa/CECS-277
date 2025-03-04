@@ -19,10 +19,10 @@ def take_turn(player: player):
     print(player.__str__())
 
     # checks for any win types and prints congratulatory message
-    if player.has_pair():
-        print("You got a pair!")
-    elif player.has_three_of_a_kind():
+    if player.has_three_of_a_kind():
         print("You got 3 of a kind!")
+    elif player.has_pair():
+        print("You got a pair!")
     elif player.has_series():
         print("You got a series of 3!")
     else:
