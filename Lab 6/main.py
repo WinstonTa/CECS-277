@@ -8,7 +8,7 @@ import check_input
 import player
 import die
 
-def take_turn(player: Player):
+def take_turn(player: player):
     '''
     roll player dice
     display dice
