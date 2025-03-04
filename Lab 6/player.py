@@ -13,11 +13,11 @@ class Player():
     
     '''calls roll on each of the Die objects in the list and then sorts the list'''
     def roll_dice(self):
-        die1 = self._dice[0].roll()
-        die2 = self._dice[1].roll()
-        die3 = self._dice[2].roll()
+        die1 = self._dice[0]
+        die2 = self._dice[1]
+        die3 = self._dice[2]
 
-        self._dice = [die1, die2, die3]
+        self._dice = [die1.roll(), die2.roll(), die3.roll()]
         self._dice.sort()
 
     '''returns true if two dice in the list have the same value, increments points by 1 if true'''
