@@ -24,19 +24,19 @@ class Player():
     def has_pair(self):
         if self._dice[0] == self._dice[1] or self._dice[1] == self._dice[2] \
         or self._dice[0] == self._dice[2]:
-            self.points += 1
+            self._points += 1
             return True
 
     '''returns true if all three dice in the list have the same value, increments points by 3 if true'''  
     def has_three_of_a_kind(self):
         if self._dice[0] == self._dice[1] and self._dice[1] == self._dice[2]:
-            self.points += 3
+            self._points += 3
             return True
 
     '''returns true if the value of each dice in the list are in a sequence, increments points by 2 if true'''    
     def has_series(self):
         if (self._dice[2] - self._dice[1]) == 1 and (self._dice[1] - self._dice[0]) == 1:
-            self.points += 2
+            self._points += 2
             return True
 
     '''returns a string in the format: “D1=2, D2=4, D3=6”'''
