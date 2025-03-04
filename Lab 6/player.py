@@ -24,12 +24,14 @@ class Player():
             return True
         
     def has_three_of_a_kind(self):
-        if self.dice[0] == self._dice[1] and self._dice[1] == self._dice[2]:
+        if self._dice[0] == self._dice[1] and self._dice[1] == self._dice[2]:
             self.points += 3
             return True
         
     def has_series(self):
-        pass
+        if (self._dice[2] - self._dice[1]) == 1 and (self._dice[1] - self._dice[0]) == 1:
+            self.points += 2
+            return True
 
     def __str__(self):
         return f"D1={self._dice[0]} D2={self._dice[1]} D3={self._dice[2]}"
