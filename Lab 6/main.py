@@ -44,7 +44,7 @@ def main():
     print("-Yahtzee-\n")
     while True:
         take_turn(user)
-        play_again = check_input.get_yes_no()
+        play_again = check_input.get_yes_no("Play again? (Y/N): ")
 
         # end the game if the user decides to stop playing
         if not play_again:
