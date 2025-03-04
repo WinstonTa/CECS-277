@@ -3,7 +3,7 @@ import random
 class Die:
     '''passes in the number of sides of the die. Assign sides
         using the parameter and set value to either 0 or to the returned value of roll()'''
-    def __initit__(self, sides: int = 6):
+    def __init__(self, sides: int = 6):
         self._sides = sides
         self._value = 0
 
