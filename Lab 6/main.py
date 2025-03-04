@@ -38,12 +38,12 @@ def main():
     display final points at the end of the game
     '''
     # initialize player and play again status
-    player = player()
+    user = player.Player()
     play_again = True
 
     print("-Yahtzee-\n")
     while True:
-        take_turn(player)
+        take_turn(user)
         play_again = check_input.get_yes_no()
 
         # end the game if the user decides to stop playing
