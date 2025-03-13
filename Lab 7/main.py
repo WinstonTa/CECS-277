@@ -10,4 +10,39 @@ import dragon
 import fire
 import flying
 import hero
+import check_input
+import random
 
+# introduction, create hero
+winston = input('What is your name, challenger?\n')
+winston = hero.Hero(winston, 50)
+print('Welcome to dragon training, Astrid\nYou must defeat 3 dragons.')
+
+reg_dragon = dragon.Dragon('Deadly Lizzettey', 10)
+fire_dragon = fire.Fire('Acefury', 15)
+wind_dragon = flying.Flying('Windy Mindy', 20)
+
+dragons_list = [reg_dragon, fire_dragon, wind_dragon]
+
+print('dragons_list')
+
+while len(dragons_list > 0):
+
+    print(hero.__str__())
+    print(f'1. Attack {reg_dragon}: {reg_dragon.__str__()}')
+    print(f'2. Attack {fire_dragon}: {fire_dragon.__str__()}')
+    print(f'3. Attack {wind_dragon}: {wind_dragon.__str__()}')
+
+    attack_dragon = check_input.get_int_range('Choose a dragon to attack: ', 1, 3)
+    print('Attack with:\n1. Arrow (1 D12)\n2. Sword (2 D6)')
+    weapon = check_input.get_int_range('Enter weapon: ', 1, 2)
+
+    if weapon == 1:
+        print(winston.arrow_attack(dragons_list[attack_dragon]))
+    else:
+        print(winston.sword_attack(dragons_list[attack_dragon]))
+
+    random_attack = random.randint(len(dragons_list))
+    print(dragons_list(random_attack).special_attack())
+
+    if reg_dragon.
