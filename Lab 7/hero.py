@@ -37,4 +37,4 @@ class Hero(entity.Entity):
         d = random.randint(1, 12)
         dragon.take_damage(d)
 
-        return 'You attacked the' + dragon.name + 'with your bow for'  + str(d) + 'damage.'
+        return 'You attacked the ' + dragon.name + ' with your bow for '  + str(d) + ' damage.'

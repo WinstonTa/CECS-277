@@ -30,14 +30,11 @@ dragons_list = [dragon.Dragon('Deadly Lizzettey', 10), fire.FireDragon('Acefury'
 # while dragons are alive
 keep_playing = True
 
-while keep_playing == True:
+while winston.hp > 0 and len(dragons_list) > 0:
 
     # menu of hero and dragons hp
-
-    while winston.hp > 0 and len(dragons_list) > 0:
-        print(winston)
-        for i, d in enumerate(dragons_list):
-            print(str(i + 1) + '. ' + str(d)) 
+    for i, d in enumerate(dragons_list):
+        print(f"{i + 1}. {d}") 
 
     # chhoosing which dragon to attack with which wepon
     attack_dragon = check_input.get_int_range('Choose a dragon to attack: ', 1, 3)

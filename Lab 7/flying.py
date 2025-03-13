@@ -26,11 +26,11 @@ class FlyingDragon(dragon.Dragon):
             self._swoops -= 1
             hero.take_damage(d)
 
-            return self._name + 'swoops you with their majestic grace for' + str(d) + 'damage!'
+            return self._name + ' swoops you with their majestic grace for ' + str(d) + ' damage!'
         else:
             # fail message if no swoops remain
-            return self._name + 'tried to fly up and majestically destroy you, but ran out of energy before attacking!'
+            return self._name + ' tried to fly up and majestically destroy you, but ran out of energy before attacking!'
 
     def __str__(self):
         # string inherits from Dragon and adds swoop count left
-        super().__str__() + '\nSwoop Attacks remaining:' + str(self._fire_shots)
+        return super().__str__() + '\nSwoop Attacks remaining: ' + str(self._swoops)
