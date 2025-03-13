@@ -55,15 +55,15 @@ while keep_playing == True:
     print(dragons_list[random_attack - 1].special_attack(winston))
 
     # seeing if dragon died
-    if reg_dragon.hp <= 0:
+    if dragons_list[0].hp <= 0:
         print(f'You defeated the {dragons_list[0]}!')
-        dragons_list.remove(reg_dragon)
-    if fire_dragon.hp <= 0:
+        dragons_list.remove(dragons_list[0])
+    if dragons_list[1].hp <= 0:
         print(f'You defeated the {dragons_list[1]}!')
-        dragons_list.remove(fire_dragon)
-    if wind_dragon.hp <= 0:
+        dragons_list.remove(dragons_list[1])
+    if dragons_list[2].hp <= 0:
         print(f'You defeated the {dragons_list[2]}!')
-        dragons_list.remove(wind_dragon)
+        dragons_list.remove(dragons_list[2])
 
     # game ends if all dragons die
     if len(dragons_list) == 0:
