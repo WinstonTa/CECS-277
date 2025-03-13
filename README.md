@@ -12,3 +12,5 @@ CECS 277 homework and projects
 ## Lab 5 - Moving Rectangle
 
 ## Lab 6 - Yahtzee
+
+## Lab 7 - Dragon Trainer
