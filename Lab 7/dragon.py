@@ -13,6 +13,7 @@ class Dragon(entity.Entity()):
         Returns:
             A string describing the tail attack.
         """
+        
         # tail attack does random damage from 2-5 hp
         d = random.randint(2, 5)
         hero.take_damage(d)
