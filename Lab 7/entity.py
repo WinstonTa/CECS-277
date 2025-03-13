@@ -28,4 +28,4 @@ class Entity():
 
     def __str__(self):
         """returns information on the entity's name, current hp, and maximum hp"""
-        return f"{self._name}: {self._hp}/{self._max_hp}"
+        return self._name + ':' + str(self._hp) + '/' + str(self._max_hp)

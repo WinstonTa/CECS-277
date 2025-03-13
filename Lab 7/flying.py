@@ -1,7 +1,7 @@
 import dragon
 import random
 
-class FlyingDragon(dragon.Dragon()):
+class FlyingDragon(dragon.Dragon):
 
     def __init__(self, name, hp):
         """Initialize FlyingDragon"""
@@ -26,11 +26,11 @@ class FlyingDragon(dragon.Dragon()):
             self._swoops -= 1
             hero.take_damage(d)
 
-            return f"{self.name} swoops you with their majestic grace for {d} damage!"
+            return self._name + 'swoops you with their majestic grace for' + str(d) + 'damage!'
         else:
             # fail message if no swoops remain
-            return f"{self.name} tried to fly up and majestically destroy you, but ran out of energy before attacking!"
+            return self._name + 'tried to fly up and majestically destroy you, but ran out of energy before attacking!'
 
     def __str__(self):
         # string inherits from Dragon and adds swoop count left
-        super().__str__() + f"\nSwoop Attacks Remaining: {self._swoops}"
+        super().__str__() + '\nSwoop Attacks remaining:' + str(self._fire_shots)

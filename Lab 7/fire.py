@@ -1,7 +1,7 @@
 import dragon
 import random
 
-class FireDragon(dragon.Dragon()):
+class FireDragon(dragon.Dragon):
 
     def __init__(self, name, hp):
         """Initializes FireDragon"""
@@ -25,11 +25,11 @@ class FireDragon(dragon.Dragon()):
             d = random.randint(6, 9)
             hero.take_damage(d)
             self._fire_shots -= 1
-            return f'{self.name} engulfs you in flames for {d} damage!'  
+            return self._name + 'engulfs you in flames for' + str(d) +  'damage!'  
         else:
             # fail message if no shots left
-            return f'{self.name} tries to spit fire at you but is all out of fire shots.'  
+            return self._name + 'tries to spit fire at you but is all out of fire shots.'  
 
     def __str__(self):
         # inherits from entity the string representation and adds fire shots left
-        super().__str__() + f'\nFire Shots remaining: {self._fire_shots}'
+        super().__str__() + '\nFire Shots remaining:' + str(self._fire_shots)

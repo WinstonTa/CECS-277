@@ -1,7 +1,7 @@
 import entity
 import random
 
-class Hero(entity.Entity()):
+class Hero(entity.Entity):
 
     def sword_attack(self, dragon: entity) -> str:
         """
@@ -37,4 +37,4 @@ class Hero(entity.Entity()):
         d = random.randint(1, 12)
         dragon.take_damage(d)
 
-        return f"You attacked the {dragon.name} with your bow for {d} damage."
+        return 'You attacked the' + dragon.name + 'with your bow for'  + str(d) + 'damage.'
