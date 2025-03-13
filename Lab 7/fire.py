@@ -1,4 +1,5 @@
 import dragon
+import random
 
 class FireDragon(dragon.Dragon()):
 
@@ -8,7 +9,11 @@ class FireDragon(dragon.Dragon()):
 
     def special_attack(self, hero):
         if self._fire_shots > 0:
-            pass
+            d = random.randint(6,9)
+            self._fire_shots -= 1
+            return f'{self.name} engulfs you in falmes for {d} damage!'  
+        else:
+            return f'{self.name} tries to spit fire at you but is all out of fire shots.'  
 
     def __str__(self):
-        pass # super().__str__()
+        super().__str__() + f'\nFire Shots remaining: {self._fire_shots}'
