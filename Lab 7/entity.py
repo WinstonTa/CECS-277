@@ -1,5 +1,6 @@
 class Entity():
     def __init__(self, name, max_hp):
+        """Initializes Entity"""
         self._max_hp = max_hp
         self._name = name
         self._hp = max_hp
@@ -14,10 +15,17 @@ class Entity():
         """Accesses the hp property."""
         return self._hp
 
-    def take_damage(self, dmg):
+    def take_damage(self, dmg: int):
+        """
+        Entity takes damage from foreign source.
+
+        Args:
+            dmg (int): the amount of damage for the poor victim to take
+        """
         self._hp -= dmg
         if self._hp < 0:
             self._hp = 0
 
     def __str__(self):
+        """returns information on the entity's name, current hp, and maximum hp"""
         return f"{self._name}: {self._hp}/{self._max_hp}"
