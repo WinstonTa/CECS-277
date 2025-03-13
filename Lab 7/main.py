@@ -28,13 +28,15 @@ dragons_list = [reg_dragon, fire_dragon, wind_dragon]
 print('dragons_list')
 
 # while dragons are alive
-while len(dragons_list > 0):
+keep_playing = True
+
+while keep_playing == True:
 
     # menu of hero and dragons hp
     print(hero.__str__())
-    print(f'1. Attack {reg_dragon.__str__()}')
-    print(f'2. Attack {fire_dragon.__str__()}')
-    print(f'3. Attack {wind_dragon.__str__()}')
+    print(f'1. Attack', {reg_dragon.__str__()})
+    print(f'2. Attack', {fire_dragon.__str__()})
+    print(f'3. Attack', {wind_dragon.__str__()})
 
     # chhoosing which dragon to attack with which wepon
     attack_dragon = check_input.get_int_range('Choose a dragon to attack: ', 1, 3)
@@ -49,5 +51,29 @@ while len(dragons_list > 0):
 
     # dragon attacks
     random_attack = random.randint(len(dragons_list))
-    print(dragons_list(random_attack).special_attack())
+    print(dragons_list[random_attack].special_attack())
+
+    # seeing if dragon died
+    if reg_dragon.hp <= 0:
+        print(f'You defeated the {dragons_list[0]}!')
+        dragons_list.remove(reg_dragon)
+    if fire_dragon.hp <= 0:
+        print(f'You defeated the {dragons_list[1]}!')
+        dragons_list.remove(fire_dragon)
+    if wind_dragon.hp <= 0:
+        print(f'You defeated the {dragons_list[2]}!')
+        dragons_list.remove(wind_dragon)
+
+    # game ends if all dragons die
+    if len(dragons_list) == 0:
+        print('Congratulations! You have defeated all 3 dragons, you have passed the trials')
+        keep_playing = False
+
+    # game ends if winston dies
+    if winston.hp <= 0:
+        print(f'It seems the dragons have gotten the best of you. Better luck in the next life {winston}')
+        keep_playing = False
+
+    
+
 
