@@ -32,9 +32,9 @@ while len(dragons_list > 0):
 
     # menu of hero and dragons hp
     print(hero.__str__())
-    print(f'1. Attack {reg_dragon}: {reg_dragon.__str__()}')
-    print(f'2. Attack {fire_dragon}: {fire_dragon.__str__()}')
-    print(f'3. Attack {wind_dragon}: {wind_dragon.__str__()}')
+    print(f'1. Attack {reg_dragon.__str__()}')
+    print(f'2. Attack {fire_dragon.__str__()}')
+    print(f'3. Attack {wind_dragon.__str__()}')
 
     # chhoosing which dragon to attack with which wepon
     attack_dragon = check_input.get_int_range('Choose a dragon to attack: ', 1, 3)
