@@ -14,3 +14,5 @@ CECS 277 homework and projects
 ## Lab 6 - Yahtzee
 
 ## Lab 7 - Dragon Trainer
+
+## Lab 8 - Pokémon Battle
