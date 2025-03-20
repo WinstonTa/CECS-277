@@ -15,12 +15,17 @@ class Pokemon:
 
     def get_normal_menu(self) -> str:
         """returns a string with the menu options for the normal moves: slam and tackle."""
-        return "Choose an Attack Type:\n1. Normal\n2. Special\nEnter attack type: "
+        normal_moves = ["Slam", "Tackle"]
+        for i, move in enumerate(normal_moves, start = 1):
+            print(f"{i}. {move}")
 
     def _normal_move(self, opponent, move) -> str:
         """use the move parameter to choose to call either slam or tackle method,
         returns the string returned from those methods."""
-        return "Choose a Move:\n1. Slam\n2. Tackle\nEnter move: "
+        if move == 1:
+            return self._slam(opponent)
+        else:
+            return self._tackle(opponent)
 
     def _slam(self, opponent) -> str:
         """randomize some damage (slam 2-6, tackle 3-5),
@@ -43,7 +48,12 @@ class Pokemon:
     @abc.abstractmethod
     def get_special_menu(self) -> str:
         """uses the move parameter to choose to call either of the special moves for that pokemon type."""
-        return "1. special move 1\n2. special move 2\nEnter move: "
+        pass
+    
+    @abc.abstractmethod
+    def _special_move(self, opponent, move) -> str:
+        '''move to call special move for pokemon type'''
+        pass
 
     def attack(self, opponent, type, move):
         """use the type parameter to choose to call either _normal_move or _special_move
@@ -68,4 +78,4 @@ class Pokemon:
 
         # check hp is 0 or less, in which case it will reset
         if self.hp <= 0:
-            self.hp = 0
+            self._hp = 0
