@@ -1,5 +1,6 @@
 import abc
 import random
+import math
 
 class Pokemon:
     def __init__(self, name, p_type):
@@ -74,7 +75,7 @@ class Pokemon:
         Check that the _hp doesn’t go past 0 (if it’s negative, reset it to 0)."""
 
         # subtract damage from pokemon hp
-        self._hp -= dmg
+        self._hp -= math.floor(dmg)
 
         # check hp is 0 or less, in which case it will reset
         if self.hp <= 0:

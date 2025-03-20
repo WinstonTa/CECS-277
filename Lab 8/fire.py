@@ -25,13 +25,13 @@ class Fire(pokemon.Pokemon):
 
         # fire vs fire: not very effective
         if opponent._p_type == 0:
-            damage *= 0.5
+            damage //= 2
             opponent._take_damage(damage)
             return f'{self._name} BURNS {opponent._name} with EMBERS for {damage} damage. It was not very effective.'
         
         # fire vs water: not very effective
         elif opponent._p_type == 1:
-            damage *= 0.5
+            damage //= 2
             opponent._take_damage(damage)
             return f'{self._name} BURNS {opponent._name} with EMBERS for {damage} damage. It was not very effective.'
     
@@ -47,13 +47,13 @@ class Fire(pokemon.Pokemon):
 
         # fire vs fire: not very effective
         if opponent._p_type == 0:
-            damage *= 0.5
+            damage //= 2
             opponent._take_damage(damage)
             return f'{self._name} uses FIRE BLAST against {opponent._name} for {damage} damage. It was not very effective.'
         
         # fire vs water: not very effective
         elif opponent._p_type == 1:
-            damage *= 0.5
+            damage //= 2
             opponent._take_damage(damage)
             return f'{self._name} uses FIRE BLAST against {opponent._name} for {damage} damage. It was not very effective.'
     
