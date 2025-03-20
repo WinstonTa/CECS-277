@@ -41,7 +41,7 @@ def main():
 
         # choosing normal or special attack
         attack_type = check_input.get_int_range(pokemon.get_normal_menu(), 1, 2)
-        
+
         # choosing which normal/special attack to use
 
 
