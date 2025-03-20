@@ -34,18 +34,24 @@ def main():
 
     print("\n  -- TRAINER BATTLE --")
 
-    while len(pokemon_list) > 0:
+    while len(pokemon_list) > 0 and mon.hp > 0:
 
         # what pokemon trainer will attack, trainer's pokemon
         print(f"TRAINER: I choose you: \n{pokemon_list[0]}\n{mon}\n")
 
-        # choosing attack
+        # choosing normal or special attack
         attack_type = check_input.get_int_range(pokemon.get_normal_menu(), 1, 2)
         
+        # choosing which normal/special attack to use
 
 
-
-
+        # pokemon dies, remove it from list
+        if pokemon_list[0].hp == 0:
+            pokemon_list.remove(pokemon_list[0])
+            print("TRAINER: NOOOO! You defeated my pokemon!")
+        elif mon.hp == 0:
+            print("TRAINER: HA! I defeated you, come back when you get a better pokemon...")
+        
         pokemon_list = []
 
 
