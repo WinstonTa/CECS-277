@@ -3,8 +3,7 @@ import random
 
 class Grass(pokemon.Pokemon):
     def __init__(self, name = None):
-        self._name = super().__init__()
-        self._type = 2
+        self._name = super().__init__(name, 2)
 
         grass_names = ['Oddish', 'Bellsprout', 'Exeggcute']
         if self._name == None:

@@ -3,8 +3,7 @@ import random
 
 class Water(pokemon.Pokemon):
     def __init__(self, name = None):
-        self._name = super().__init__()
-        self._type = 1
+        self._name = super().__init__(name, 1)
 
         water_names = ['Staryu', 'Magikarp', 'Horsea']
         if self._name == None:

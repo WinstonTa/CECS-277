@@ -3,8 +3,7 @@ import random
 
 class Fire(pokemon.Pokemon):
     def __init__(self, name = None):
-        self._name = super().__init__()
-        self._type = 0
+        self._name = super().__init__(None, p_type=0)
 
         fire_names = ['Ponyta', 'Growlithe', 'Vulpix']
         if self._name == None:

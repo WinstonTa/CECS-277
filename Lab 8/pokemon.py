@@ -38,7 +38,7 @@ class Pokemon:
         the name of the move, and the amount of damage taken."""
         tackle_dmg = random.randint(3, 5)
         opponent._take_damage(tackle_dmg)
-        return f"{self.name} TACKLES {opponent._name} for {tackle_dmg} damage."
+        return f"{self._name} TACKLES {opponent._name} for {tackle_dmg} damage."
 
     @abc.abstractmethod
     def get_special_menu(self) -> str:
@@ -57,7 +57,7 @@ class Pokemon:
 
     def __str__(self):
         """display the pokemon’s name and hp in the format “Name: hp/25”."""
-        return f"{self.name}: {self.hp}/25"
+        return f"{self._name}: {self.hp}/25"
 
     def _take_damage(self, dmg):
         """the damage the pokemon takes. Subtract the dmg value from the pokemon’s _hp.
