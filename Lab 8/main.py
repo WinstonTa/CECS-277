@@ -10,6 +10,7 @@ import fire
 import grass
 import pokemon
 import water
+import random
 
 def main():
 
@@ -37,23 +38,30 @@ def main():
     while len(pokemon_list) > 0 and mon.hp > 0:
 
         # what pokemon trainer will attack, trainer's pokemon
-        print(f"TRAINER: I choose you: \n{pokemon_list[0]}\n{mon}\n")
+        print(f"TRAINER: I choose you: \n{pokemon_list[0]}\n\n{mon}\n")
 
         # choosing normal or special attack
-        attack_type = check_input.get_int_range(pokemon.get_normal_menu(), 1, 2)
+        attack_type = check_input.get_int_range("1. Normal Attack\n2. Special Attack\nEnter attack type: ", 1, 2)
 
-        # choosing which normal/special attack to use
-
+        # normal attack
+        if attack_type == 1:
+            normal_attack = check_input.get_int_range("Choose a Move:\n1. Slam\n2. Tackle\nEnter move: ", 1, 2)
+            print(mon._normal_move(pokemon_list[0], normal_attack))
+        
+        # special attack
+        if attack_type == 2:
+            special_attack = check_input.get_int_range(mon.get_special_menu(), 1, 2)
+            print(mon._special_move(pokemon_list[0], special_attack))
+        
+        # opponent pokemon strikes back
+        print(pokemon_list[0]._special_move(mon, random.randint(1, 2)))
 
         # pokemon dies, remove it from list
         if pokemon_list[0].hp == 0:
             pokemon_list.remove(pokemon_list[0])
             print("TRAINER: NOOOO! You defeated my pokemon!")
-        elif mon.hp == 0:
+        if mon.hp == 0:
             print("TRAINER: HA! I defeated you, come back when you get a better pokemon...")
-        
-        pokemon_list = []
-
 
 if __name__ == '__main__':
     main()
