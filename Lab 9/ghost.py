@@ -1,4 +1,5 @@
 import random
+import maze
 
 class Ghost:
     def __init__(self):
@@ -11,9 +12,9 @@ class Ghost:
         collision = False
 
         # initialize maze, find player and ghost coordinates
-        maze = maze()
-        player_location = maze.search_maze("P")
-        ghost_location = maze.search_maze("G")
+        m = maze()
+        player_location = m.search_maze("P")
+        ghost_location = m.search_maze("G")
 
         # check player position relative to ghost position: x-coordinate
         if player_location[0] < ghost_location[0]:
@@ -32,8 +33,16 @@ class Ghost:
             pass
 
         # check if ghost movement will collide with wall, choose new direction if so
-        if maze.is_wall(ghost_location[0] + x_move, ghost_location[1] + y_move):
-            ghost_location[0] + x_move 
+        if m.is_wall(ghost_location[0] + x_move, ghost_location[1] + y_move):
+            # if in corner
+            x_move = random.randint(-1, 1)
+            y_move = random.randint(-1, 1)
+        elif m.is_wall(ghost_location[0] + x_move, ghost_location[1]):
+            # if hit wall on x coordinate
+            y_move = random.choice([-1, 1])
+        elif m.is_wall(ghost_location[0], ghost_location[1] + y_move):
+            # if hit wall on y coordinate
+            x_move = random.choice([-1, 1])
 
         # update ghost location
         ghost_location[0] += x_move
