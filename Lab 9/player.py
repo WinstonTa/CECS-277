@@ -8,7 +8,8 @@ class Player:
         y = player_location[1]
 
         # update player location depending on input
-        player_location = " "
+        m.place_char(x, y, " ")
+
         if direction == "w":
             y += 1
         elif direction == "s":
