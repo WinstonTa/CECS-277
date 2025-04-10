@@ -12,6 +12,8 @@ class Player:
         Returns:
             A boolean that returns True if the player collided into the ghost, False if the player is safe.
         """
+
+        # initalize maze and player location
         m = maze()
         player_location = m.search_maze("P")
         x = player_location[0]
@@ -21,9 +23,9 @@ class Player:
         m.place_char(x, y, " ")
 
         if direction == "w":
-            y += 1
-        elif direction == "s":
             y -= 1
+        elif direction == "s":
+            y += 1
         elif direction == "a":
             x -= 1
         elif direction == "d":
