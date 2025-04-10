@@ -23,10 +23,7 @@ class Maze:
     
     def is_wall(self, r, c):
         # check to see if comparison should be "==" or "is" or "contains"
-        if self._m[r][c] == "*":
-            return True
-        else:
-            return False
+        return self._m[r][c] == "*"
     
     def place_char(self, r, c, char):
         self._m[r][c] = char
