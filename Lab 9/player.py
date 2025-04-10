@@ -1,7 +1,17 @@
 import maze
+
 class Player:
 
-    def move(self, direction):
+    def move(self, direction: str) -> bool:
+        """
+        Player is allowed to move in desired direction.
+
+        Args:
+            direction (str): inputs WASD corresponding to up, left, down, and right respectively
+
+        Returns:
+            A boolean that returns True if the player collided into the ghost, False if the player is safe.
+        """
         m = maze()
         player_location = m.search_maze("P")
         x = player_location[0]
