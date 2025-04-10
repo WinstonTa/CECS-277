@@ -1,4 +1,5 @@
 class Maze:
+    # singleton implementation
     _instance = None
     _initialized = False
 
@@ -13,6 +14,7 @@ class Maze:
         maze = file.readlines()
         maze_grid = []
 
+        # append each string to the maze grid as a list of characters
         for i in range(len(maze)):
             maze_grid.append(list(maze[i]))
                 
@@ -28,6 +30,7 @@ class Maze:
         Returns:
             A list corresponding to the desired row of the Pacman grid.
         """
+
         return self._m[row]
     
     def is_wall(self, r: int, c: int) -> bool:
@@ -41,6 +44,7 @@ class Maze:
         Returns:
             A boolean that confirms if the player or ghost hit the wall.
         """
+
         return self._m[r][c] == "*"
     
     def place_char(self, r: int, c: int, char: str):
@@ -51,19 +55,34 @@ class Maze:
             r (int): An integer corresponding to the desired row of the Pacman grid.
             c (int): An integer corresponding to the desired column of the Pacman grid.
         """
+
         self._m[r][c] = char
     
     def __str__(self):
-        # prints grid in grid format
+        # prints maze in grid format
         for i in range(len(self._m)):
             for j in range(len(self._m[i])):
                 print(self._m[i][j], end='')
     
     def search_maze(self, char: str) -> list:
+        """
+        Returns the location of the first occurrence of the character in the maze as a two-item 1D list
+        (ex. [row, col], or [-1,-1] if not found).
+
+        Args:
+            char (str): A character the method will search for.
+
+        Returns:
+            A list of the coordinates of the first occurrence of the searched character.
+            Will result in [-1, -1] if the character can not be found.
+        """
+
+        # default row and column coordinates at initialization
         row_coord = -1
         col_coord = -1
         coordinates = [row_coord, col_coord]
 
+        # search for correct character
         for row in self._m:
             for col in self._m:
                 if self._m[row][col] == char:
@@ -73,6 +92,7 @@ class Maze:
         return coordinates
     
     def count_dots(self) -> int:
+        # search and count for dots
         dot_count = 0
         for row in self._m:
             for col in self._m:
