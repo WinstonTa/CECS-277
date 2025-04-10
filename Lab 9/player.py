@@ -2,30 +2,27 @@ import maze
 class Player:
 
     def move(self, direction):
-
+        m = maze()
+        player_location = m.search_maze("P")
+        x = player_location[0]
+        y = player_location[1]
         # update player location depending on input
-        player_location = maze.search_maze("P")
+        player_location = " "
         if direction == "w":
-            player_location = " "
-            new_location = [player_location[0], player_location[1] + 1]
+            y += 1
         elif direction == "s":
-            player_location = " "
-            new_location = [player_location[0], player_location[1] - 1]
+            y -= 1
         elif direction == "a":
-            player_location = " "
-            new_location = [player_location[0] - 1, player_location[1]]
+            x -= 1
         elif direction == "d":
-            player_location = " "
-            new_location = [player_location[0] + 1, player_location[1]]
+            x += 1
 
         # check that player did not run into wall and update new location to "P"  
-        if new_location == "*":
-            new_location = player_location
-        elif new_location == ".":
-            new_location = "P"
+        if not m.is_wall():
+            m.place_char(x, y, "P")
         
         # check if player ran into ghost
-        if new_location == maze.search_maze("G"):
+        if m.search_maze("G") == m.search_maze("P"):
             return True
         else:
             return False
