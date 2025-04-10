@@ -9,7 +9,7 @@ def main():
     p = player.Player()
     g = ghost.Ghost()
 
-    print(m._maze)
+    print(m)
     
 
 if __name__ == "__main__":

@@ -29,11 +29,11 @@ class Maze:
         self._m[r][c] = char
     
     def __str__(self):
-        maze_grid = list(list(str))
-        for row in self._m:
-            for item in row:
-                maze_grid[row][item] = self._m[row][item]
-        return maze_grid
+        maze_grid = list(list())
+        for i in range(len(self._m)):
+            for j in range(len(self._m.__getitem__(i))):
+                maze_grid[i][j] = self._m[i][j]
+        return str(maze_grid)
     
     def search_maze(self, char):
         row_coord = -1
