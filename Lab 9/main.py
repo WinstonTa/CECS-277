@@ -1,3 +1,16 @@
-"""start main.py for lab 9"""
-print("hi im winston")
-print("hi")
+import random
+import maze
+import player
+import ghost
+
+def main():
+
+    m = maze.Maze()
+    p = player.Player()
+    g = ghost.Ghost()
+
+    print(m._maze)
+    
+
+if __name__ == "__main__":
+    main()

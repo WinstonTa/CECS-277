@@ -9,7 +9,7 @@ class Maze:
     
     def __init__(self):
         # open the file and create the 2D grid
-        file = open("/pacman.txt")
+        file = open('Lab 9\\pacman.txt')
         maze = file.readlines()
 
         for i in range(len(maze)):
