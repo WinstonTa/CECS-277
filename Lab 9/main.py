@@ -9,7 +9,7 @@ def main():
     p = player.Player()
     g = ghost.Ghost()
 
-    print(m)
+    print(m._m)
     
 
 if __name__ == "__main__":

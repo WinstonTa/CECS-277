@@ -11,12 +11,12 @@ class Maze:
         # open the file and create the 2D grid
         file = open('Lab 9\\pacman.txt')
         maze = file.readlines()
+        maze_grid = []
 
         for i in range(len(maze)):
-            row = list(maze[i])
-            maze.append(row)
+            maze_grid.append(list(maze[i]))
                 
-        self._m = maze
+        self._m = maze_grid
 
     def __getitem__(self, row):
         return self._m[row]
@@ -29,11 +29,9 @@ class Maze:
         self._m[r][c] = char
     
     def __str__(self):
-        maze_grid = list(list())
         for i in range(len(self._m)):
-            for j in range(len(self._m.__getitem__(i))):
-                maze_grid[i][j] = self._m[i][j]
-        return str(maze_grid)
+            for j in range(len(self._m[i])):
+                print(self._m[i][j], end='')
     
     def search_maze(self, char):
         row_coord = -1
