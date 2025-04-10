@@ -15,9 +15,21 @@ def main():
     m = maze.Maze()
     p = player.Player()
     g = ghost.Ghost()
-
-    print(m._m)
     
+    game = True
+
+    while game == True:
+        print(m)
+        player_move = input("Move (WASD): ").lower()
+        p.move(player_move)
+        g.move()
+
+        if m.count_dots() == 0:
+            print("All dots eaten. You win!")
+            return False
+
+    print("You ran into the ghost! Game over...")
+        
 
 if __name__ == "__main__":
     main()

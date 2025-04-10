@@ -48,6 +48,8 @@ class Ghost:
         ghost_location[0] += x_move
         ghost_location[1] += y_move
 
+        m.place_char(ghost_location[0], ghost_location[1], "G")
+
         # test if player location matches ghost location, update collision if so
         if player_location == ghost_location:
             collision = True
