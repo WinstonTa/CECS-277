@@ -26,40 +26,39 @@ class Ghost:
 
         # check player position relative to ghost position: x-coordinate
         if player_location[0] < ghost_location[0]:
-            x_move = 1
-        elif player_location[0] > ghost_location[0]:
             x_move = -1
-        else:
-            pass
+        elif player_location[0] > ghost_location[0]:
+            x_move = 1
         
         # check player position relative to ghost position: y-coordinate
         if player_location[1] < ghost_location[1]:
-            y_move = 1
-        elif player_location[1] > ghost_location[1]:
             y_move = -1
-        else:
-            pass
+        elif player_location[1] > ghost_location[1]:
+            y_move = 1
+        
+        # next row and column
+        next_row = ghost_location[0] + x_move
+        next_col = ghost_location[1] + y_move
 
         # check if ghost movement will collide with wall, choose new direction if so
-        if m.is_wall(ghost_location[0] + x_move, ghost_location[1] + y_move):
+        if m.is_wall(next_row, next_col):
             # if in corner
-            x_move = random.randint(-1, 1)
-            y_move = random.randint(-1, 1)
-        elif m.is_wall(ghost_location[0] + x_move, ghost_location[1]):
-            # if hit wall on x coordinate
-            y_move = random.choice([-1, 1])
-        elif m.is_wall(ghost_location[0], ghost_location[1] + y_move):
-            # if hit wall on y coordinate
-            x_move = random.choice([-1, 1])
+            x_move = random.choice([-1, 0, 1])
+            y_move = random.choice([-1, 0, 1])
+            next_row = ghost_location[0] + x_move
+            next_col = ghost_location[1] + y_move
 
-        # update ghost location
-        ghost_location[0] += x_move
-        ghost_location[1] += y_move
+        # restore previous tile of former ghost location
+        m.place_char(ghost_location[0], ghost_location[1], self._previous)
 
-        m.place_char(ghost_location[0], ghost_location[1], "G")
+        # save tile that ghost will move to
+        self._previous = m[next_row][next_col]
 
-        # test if player location matches ghost location, update collision if so
-        if player_location == ghost_location:
+        # move the ghost
+        m.place_char(next_row, next_col, "G")
+
+        # test for ghost-player collision
+        if [next_row, next_col] == player_location:
             collision = True
         
         return collision

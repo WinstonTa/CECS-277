@@ -77,22 +77,14 @@ class Maze:
             A list of the coordinates of the first occurrence of the searched character.
             Will result in [-1, -1] if the character can not be found.
         """
-
-        # default row and column coordinates at initialization
-        row_coord = -1
-        col_coord = -1
-        # coordinates = [row_coord, col_coord]
-
+        
         # search for correct character
         for i in range(len(self._m)):
             for j in range(len(self._m[i])):
                 if self._m[i][j] == char:
-                    row_coord = i
-                    col_coord = j
+                    return [i, j]
         
-        coordinates = [row_coord, col_coord]
-
-        return coordinates
+        return [-1, -1]
     
     def count_dots(self) -> int:
         # search and count for dots
