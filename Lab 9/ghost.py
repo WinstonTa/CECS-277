@@ -14,48 +14,49 @@ class Ghost:
         Returns:
             A boolean that returns True if the ghost collided into the player, False if the player is safe.
         """
-
-        m = maze.Maze()
-        # direction ghost should move next, collision variable
-        ghost_location = m.search_maze("G")
-        x = ghost_location[0]
-        y = ghost_location[1]
+        x_move = 0
+        y_move = 0
         collision = False
 
-        # initialize maze, find player and ghost coordinates
+        m = maze.Maze()
         player_location = m.search_maze("P")
+        ghost_location = m.search_maze("G")
 
-        # check player position relative to ghost position: x-coordinate
+        # check row direction (up/down)
         if player_location[0] < ghost_location[0]:
-            y += -1
+            x_move = -1
         elif player_location[0] > ghost_location[0]:
-            y += 1
-        
-        # check player position relative to ghost position: y-coordinate
+            x_move = 1
+
+        # check col direction (left/right)
         if player_location[1] < ghost_location[1]:
-            x += -1
+            y_move = -1
         elif player_location[1] > ghost_location[1]:
-            x += 1
+            y_move = 1
 
-        # check if ghost movement will collide with wall, choose new direction if so
-        if m.is_wall(x, y):
-            random_direction = random.randint(0,1)
-            if random_direction == 0:
-                x = random.choice([-1, 1])
-            else:
-                x = random.choice([-1, 1])
+        # Try to move vertically first
+        next_row = ghost_location[0] + x_move
+        next_col = ghost_location[1]
 
-        # restore previous tile of former ghost location
+        if x_move != 0 and not m.is_wall(next_row, next_col):
+            pass  # move is fine
+        elif y_move != 0 and not m.is_wall(ghost_location[0], ghost_location[1] + y_move):
+            next_row = ghost_location[0]
+            next_col = ghost_location[1] + y_move
+        else:
+            # blocked, try random cardinal directions (no diagonals)
+            for dx, dy in [(-1,0), (1,0), (0,-1), (0,1)]:
+                if not m.is_wall(ghost_location[0] + dx, ghost_location[1] + dy):
+                    next_row = ghost_location[0] + dx
+                    next_col = ghost_location[1] + dy
+                    break  # take first valid direction
+
+        # restore previous tile
         m.place_char(ghost_location[0], ghost_location[1], self._previous)
+        self._previous = m[next_row][next_col]
+        m.place_char(next_row, next_col, "G")
 
-        # save tile that ghost will move to
-        self._previous = m[x][y]
-
-        # move the ghost
-        m.place_char(x, y, "G")
-
-        # test for ghost-player collision
-        if [x, y] == player_location:
+        if [next_row, next_col] == player_location:
             collision = True
-        
+
         return collision

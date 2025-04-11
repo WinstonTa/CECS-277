@@ -33,13 +33,15 @@ class Player:
 
         # check that player did not run into wall and update new location to "P"  
         if not m.is_wall(x, y):
+            if m[x][y] == "G":
+                return True
             m.place_char(x, y, "P")
-        elif m.is_wall(x, y):
+        else:
+            # undo move by replacing the player back if hit wall
             m.place_char(player_location[0], player_location[1], "P")
-            
         
         # check if player ran into ghost
         if m.search_maze("G") == m.search_maze("P"):
             return True
-        else:
-            return False
+        
+        return False
