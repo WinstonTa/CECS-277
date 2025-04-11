@@ -3,9 +3,17 @@ import maze
 
 class Ghost:
     def __init__(self):
+        # previous tile will be replaced with '.'
         self._previous = '.'
     
     def move(self) -> bool:
+        """
+        Ghost moves in directions that gradually pursue the player. If the ghost hits a wall then they will
+        move in a random direction to continue pursuing the player.
+
+        Returns:
+            A boolean that returns True if the ghost collided into the player, False if the player is safe.
+        """
         # direction ghost should move next, collision variable
         x_move = 0
         y_move = 0
