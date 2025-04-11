@@ -14,51 +14,48 @@ class Ghost:
         Returns:
             A boolean that returns True if the ghost collided into the player, False if the player is safe.
         """
+
+        m = maze.Maze()
         # direction ghost should move next, collision variable
-        x_move = 0
-        y_move = 0
+        ghost_location = m.search_maze("G")
+        x = ghost_location[0]
+        y = ghost_location[1]
         collision = False
 
         # initialize maze, find player and ghost coordinates
-        m = maze.Maze()
         player_location = m.search_maze("P")
-        ghost_location = m.search_maze("G")
 
         # check player position relative to ghost position: x-coordinate
         if player_location[0] < ghost_location[0]:
-            x_move = -1
+            y += -1
         elif player_location[0] > ghost_location[0]:
-            x_move = 1
+            y += 1
         
         # check player position relative to ghost position: y-coordinate
         if player_location[1] < ghost_location[1]:
-            y_move = -1
+            x += -1
         elif player_location[1] > ghost_location[1]:
-            y_move = 1
-        
-        # next row and column
-        next_row = ghost_location[0] + x_move
-        next_col = ghost_location[1] + y_move
+            x += 1
 
         # check if ghost movement will collide with wall, choose new direction if so
-        if m.is_wall(next_row, next_col):
-            # if in corner
-            x_move = random.choice([-1, 0, 1])
-            y_move = random.choice([-1, 0, 1])
-            next_row = ghost_location[0] + x_move
-            next_col = ghost_location[1] + y_move
+        if m.is_wall(x, y):
+            random_direction = random.randint(0,1)
+            if random_direction == 0:
+                x = random.choice([-1, 1])
+            else:
+                x = random.choice([-1, 1])
 
         # restore previous tile of former ghost location
         m.place_char(ghost_location[0], ghost_location[1], self._previous)
 
         # save tile that ghost will move to
-        self._previous = m[next_row][next_col]
+        self._previous = m[x][y]
 
         # move the ghost
-        m.place_char(next_row, next_col, "G")
+        m.place_char(x, y, "G")
 
         # test for ghost-player collision
-        if [next_row, next_col] == player_location:
+        if [x, y] == player_location:
             collision = True
         
         return collision
