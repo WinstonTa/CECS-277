@@ -23,18 +23,18 @@ class Player:
         m.place_char(x, y, " ")
 
         if direction == "w":
-            y -= 1
-        elif direction == "s":
-            y += 1
-        elif direction == "a":
             x -= 1
-        elif direction == "d":
+        elif direction == "s":
             x += 1
+        elif direction == "a":
+            y -= 1
+        elif direction == "d":
+            y += 1
 
         # check that player did not run into wall and update new location to "P"  
         if not m.is_wall(x, y):
             m.place_char(x, y, "P")
-        if m.is_wall(x, y):
+        elif m.is_wall(x, y):
             m.place_char(player_location[0], player_location[1], "P")
             
         
