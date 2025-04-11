@@ -81,7 +81,7 @@ class Maze:
         # default row and column coordinates at initialization
         row_coord = -1
         col_coord = -1
-        coordinates = [row_coord, col_coord]
+        # coordinates = [row_coord, col_coord]
 
         # search for correct character
         for i in range(len(self._m)):
@@ -90,6 +90,8 @@ class Maze:
                     row_coord = i
                     col_coord = j
         
+        coordinates = [row_coord, col_coord]
+
         return coordinates
     
     def count_dots(self) -> int:
