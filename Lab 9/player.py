@@ -14,7 +14,7 @@ class Player:
         """
 
         # initalize maze and player location
-        m = maze()
+        m = maze.Maze()
         player_location = m.search_maze("P")
         x = player_location[0]
         y = player_location[1]
