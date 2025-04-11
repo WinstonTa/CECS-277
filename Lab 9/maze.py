@@ -10,15 +10,17 @@ class Maze:
     
     def __init__(self):
         # open the file and create the 2D grid
-        file = open('Lab 9\\pacman.txt')
-        maze = file.readlines()
-        maze_grid = []
+        if not Maze._initialized:
+            file = open('Lab 9\\pacman.txt')
+            maze = file.readlines()
+            maze_grid = []
 
-        # append each string to the maze grid as a list of characters
-        for i in range(len(maze)):
-            maze_grid.append(list(maze[i]))
-                
-        self._m = maze_grid
+            # append each string to the maze grid as a list of characters
+            for i in range(len(maze)):
+                maze_grid.append(list(maze[i]))
+                    
+            self._m = maze_grid
+            Maze._initialized = True
 
     def __getitem__(self, row: int) -> list:
         """
@@ -77,7 +79,7 @@ class Maze:
             A list of the coordinates of the first occurrence of the searched character.
             Will result in [-1, -1] if the character can not be found.
         """
-        
+
         # search for correct character
         for i in range(len(self._m)):
             for j in range(len(self._m[i])):
