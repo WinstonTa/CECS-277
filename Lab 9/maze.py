@@ -61,10 +61,7 @@ class Maze:
         self._m[r][c] = char
     
     def __str__(self):
-        # prints maze in grid format
-        # for i in range(len(self._m)):
-        #     for j in range(len(self._m[i])):
-        #         print(self._m[i][j], end='')
+        # grid string representation of Maze
         return ''.join(''.join(row) for row in self._m)
     
     def search_maze(self, char: str) -> list:
