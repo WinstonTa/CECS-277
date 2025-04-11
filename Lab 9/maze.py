@@ -84,11 +84,11 @@ class Maze:
         coordinates = [row_coord, col_coord]
 
         # search for correct character
-        for row in self._m:
-            for col in self._m:
-                if self._m[row][col] == char:
-                    row_coord = row
-                    col_coord = col
+        for i in range(len(self._m)):
+            for j in range(len(self._m[i])):
+                if self._m[i][j] == char:
+                    row_coord = i
+                    col_coord = j
         
         return coordinates
     

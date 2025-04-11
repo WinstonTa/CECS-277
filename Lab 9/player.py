@@ -32,9 +32,9 @@ class Player:
             x += 1
 
         # check that player did not run into wall and update new location to "P"  
-        if not m.is_wall():
+        if not m.is_wall(x, y):
             m.place_char(x, y, "P")
-        if m.is_wall():
+        if m.is_wall(x, y):
             m.place_char(player_location[0], player_location[1], "P")
             
         
