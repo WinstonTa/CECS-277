@@ -20,7 +20,7 @@ class Ghost:
         collision = False
 
         # initialize maze, find player and ghost coordinates
-        m = maze()
+        m = maze.Maze()
         player_location = m.search_maze("P")
         ghost_location = m.search_maze("G")
 

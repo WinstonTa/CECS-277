@@ -95,9 +95,9 @@ class Maze:
     def count_dots(self) -> int:
         # search and count for dots
         dot_count = 0
-        for row in self._m:
-            for col in self._m:
-                if self._m[row][col] == ".":
+        for i in range(len(self._m)):
+            for j in range(len(self._m[i])):
+                if self._m[i][j] == '.':
                     dot_count += 1
         
         return dot_count
