@@ -20,6 +20,9 @@ def main():
         # initialize main game loop
         print(m)
         player_move = input("Move (WASD): ").lower()
+        while player_move !="w" and player_move !="a" and player_move !="s" and player_move !="d":
+            player_move = input("Please enter a valid input. Move (WASD): ").lower()
+
         player_hit = p.move(player_move)
         ghost_hit = g.move()
 
