@@ -38,12 +38,15 @@ class Ghost:
             x += 1
 
         # check if ghost movement will collide with wall, choose new direction if so
-        if m.is_wall(x, y):
+        while m.is_wall(x, y):
+            x = ghost_location[0]
+            y = ghost_location[1]
+
             random_direction = random.randint(0,1)
             if random_direction == 0:
-                x = random.choice([-1, 1])
+                x -= random.choice([-1, 1])
             else:
-                x = random.choice([-1, 1])
+                y -= random.choice([-1, 1])
 
         # restore previous tile of former ghost location
         m.place_char(ghost_location[0], ghost_location[1], self._previous)
