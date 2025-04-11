@@ -5,31 +5,35 @@ Description: This project lets users play a game of Pacman across a 10x10 grid. 
 try to eat all the food while avoiding the Pacman that will try to eat them.
 '''
 
-import random
 import maze
 import player
 import ghost
 
 def main():
-
+    # initialize maze, player, and ghost, and game state
     m = maze.Maze()
     p = player.Player()
     g = ghost.Ghost()
-    
     game = True
 
-    while game == True:
+    while game:
+        # initialize main game loop
         print(m)
         player_move = input("Move (WASD): ").lower()
-        p.move(player_move)
-        g.move()
+        player_hit = p.move(player_move)
+        ghost_hit = g.move()
 
+        # player loss: player collides with ghost
+        if player_hit or ghost_hit:
+            print(m)
+            print("You ghost caught you! Game over...")
+            break
+
+        # player win: dot count reaches 0
         if m.count_dots() == 0:
             print("All dots eaten. You win!")
-            return False
-
-    print("You ran into the ghost! Game over...")
+            break
         
-
+# execute main game
 if __name__ == "__main__":
     main()
