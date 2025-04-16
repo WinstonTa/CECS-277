@@ -18,3 +18,5 @@ CECS 277 homework and projects
 ## Lab 8 - Pokémon Battle
 
 ## Lab 9 - Pac-Man
+
+## Lab 10 - Monster Trials
