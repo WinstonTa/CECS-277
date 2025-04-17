@@ -9,5 +9,5 @@ class BegGoblin(entity.Entity):
     def melee_attack(self, enemy) -> str:
         d = random.randint(4, 6)
         enemy.take_damage(d)
-        return f"{self._name} did a ranged attack on {enemy} for {d} damage!"
+        return f"{self._name} did a ranged attack on {enemy._name} for {d} damage!"
     

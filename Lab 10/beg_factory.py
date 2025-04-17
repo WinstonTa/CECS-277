@@ -7,8 +7,9 @@ class BeginnerEnemyFactory(enemy_factory.EnemyFactory):
     def create_random_enemy(self):
         rand_choice = random.randint(0,1)
         if rand_choice == 0:
-            random_enemy = beg_goblin.BegGoblin()
+            return beg_goblin.BegGoblin()
         else:
-            random_enemy = beg_troll.BegTroll()
-        return random_enemy
+            return beg_troll.BegTroll()
+        
+    
 

@@ -8,9 +8,8 @@ class ExpertEnemyFactory(enemy_factory.EnemyFactory):
     def create_random_enemy(self):
         rand_choice = random.randint(0,1)
         if rand_choice == 0:
-            random_enemy = exp_goblin.ExpGoblin("Grotesque Goblin")
+            return exp_goblin.ExpGoblin()
         else:
-            random_enemy = exp_troll.ExpTroll("Tyrannical Troll")
-        return random_enemy
+            return exp_troll.ExpTroll()
 
     
