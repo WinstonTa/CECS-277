@@ -4,7 +4,7 @@ import exp_troll
 import random
 
 class ExpertEnemyFactory(enemy_factory.EnemyFactory):
-    # work on this after ExpGoblin and ExpTroll are done
+    """creates a random expert enemy"""
     def create_random_enemy(self):
         rand_choice = random.randint(0,1)
         if rand_choice == 0:
