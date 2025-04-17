@@ -7,15 +7,9 @@ ingenuity. They must deal with goblins and trolls, and when done horrible goblin
 
 
 # file import nightmare
-import entity
 import hero
-import enemy_factory
 import beg_factory
 import exp_factory
-import beg_goblin
-import beg_troll
-import exp_troll
-import exp_goblin
 import check_input
 
 
