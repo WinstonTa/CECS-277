@@ -2,7 +2,7 @@ import decorator
 
 class Cloak(decorator.Decorator):
     def description(self):
-        return "Protective Cloak"
+        return "Cloaked" + super().description()
 
     def magic_resistance(self):
         return super().magic_resistance() + 1

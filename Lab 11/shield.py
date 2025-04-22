@@ -2,7 +2,7 @@ import decorator
 
 class Shield(decorator.Decorator):
     def description(self):
-        return "Sturdy Shield"
+        return "Shielded" + super().description()
 
     def magic_resistance(self):
         return super().magic_resistance()

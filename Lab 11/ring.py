@@ -2,7 +2,7 @@ import decorator
 
 class Ring(decorator.Decorator):
     def description(self):
-        return "Magic Ring"
+        return super().description() + "Magic Ring"
 
     def magic_resistance(self):
         return super().magic_resistance() + 2
