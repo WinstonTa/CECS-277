@@ -1,6 +1,8 @@
 import abc
 
-class Character(abc.ABC):
+class Character(abc.ABC): 
+    '''Interface, sets groundwork for other classes.'''
+
     @abc.abstractmethod
     def description(self):
         # character's name and items
