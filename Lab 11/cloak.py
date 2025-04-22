@@ -1,6 +1,6 @@
-import decorator
+import our_decorator
 
-class Cloak(decorator.Decorator):
+class Cloak(our_decorator.Decorator):
     def description(self):
         return "Cloaked" + super().description()
 

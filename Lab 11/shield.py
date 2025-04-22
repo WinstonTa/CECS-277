@@ -1,6 +1,6 @@
-import decorator
+import our_decorator
 
-class Shield(decorator.Decorator):
+class Shield(our_decorator.Decorator):
     def description(self):
         return "Shielded" + super().description()
 

@@ -1,8 +1,8 @@
-import decorator
+import our_decorator
 
-class Ring(decorator.Decorator):
+class Ring(our_decorator.Decorator):
     def description(self):
-        return super().description() + "Magic Ring"
+        return super().description() + "with a magic ring"
 
     def magic_resistance(self):
         return super().magic_resistance() + 2
