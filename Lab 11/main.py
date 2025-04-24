@@ -24,15 +24,15 @@ def main():
     player = None
     character_choice = check_input.get_int_range("Choose a starting character:\n1. Bard\n2. Warrior\n3. Wizard\n", 1, 3)
     enemies = {
-        "Spiked Dragon": {0, 6},
-        "Orc Warlord": {1, 5},
-        "Shadow Knight": {2, 4},
-        "Lava Monster": {3, 3},
-        "Fiendish Ghoul": {4, 2},
-        "Goblin Mage": {5, 1},
-        "Dark Magician": {6, 0}
+        "Spiked Dragon": (0, 6),
+        "Orc Warlord": (1, 5),
+        "Shadow Knight": (2, 4),
+        "Lava Monster": (3, 3),
+        "Fiendish Ghoul": (4, 2),
+        "Goblin Mage": (5, 1),
+        "Dark Magician": (6, 0)
     }
-    enemy_selection = dict(random.sample(sorted(enemies.items()), 3))
+    enemy_selection = list(random.sample(sorted(enemies.items()), 3))
     
     match character_choice:
         case 1:
@@ -68,7 +68,7 @@ def main():
     
     current_enemy = random.choice(enemy_selection)
     print("You must pass two of the following three trials!\nTrial 1 of 3:")
-    print(f"You encounter a {current_enemy}\nMR: {current_enemy}")
+    print(f"You encounter a {current_enemy[0]}\nMR: {current_enemy[1][0]}\nStrength: {current_enemy[1][1]}")
 
 # execute main game
 if __name__ == "__main__":
