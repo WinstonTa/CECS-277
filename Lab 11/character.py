@@ -18,7 +18,6 @@ class Character(abc.ABC):
         # character's strength valu
         pass
 
-    @abc.abstractmethod
     def __str__(self):
         # returns character's description, magic resistance, and strength
-        pass
+        return f"Name: {self.description()}\nMR: {self.magic_resistance()}\nStrength: {self.strength()}"

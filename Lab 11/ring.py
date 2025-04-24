@@ -5,7 +5,7 @@ class Ring(our_decorator.Decorator):
     method with super and adds on the additional value'''
     
     def description(self):
-        return super().description() + "with a magic ring"
+        return super().description() + " with a magic ring"
 
     def magic_resistance(self):
         return super().magic_resistance() + 2

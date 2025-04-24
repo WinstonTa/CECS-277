@@ -5,7 +5,7 @@ class Cloak(our_decorator.Decorator):
     method with super and adds on the additional value'''
 
     def description(self):
-        return "Cloaked" + super().description()
+        return "Cloaked " + super().description()
 
     def magic_resistance(self):
         return super().magic_resistance() + 1

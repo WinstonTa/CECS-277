@@ -5,7 +5,7 @@ class Shield(our_decorator.Decorator):
     method with super and adds on the additional value'''
     
     def description(self):
-        return "Shielded" + super().description()
+        return "Shielded " + super().description()
 
     def magic_resistance(self):
         return super().magic_resistance()
