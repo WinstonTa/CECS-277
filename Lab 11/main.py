@@ -66,9 +66,38 @@ def main():
         items_left -= 1
         print(f"\n{player}")
     
-    current_enemy = random.choice(enemy_selection)
-    print("You must pass two of the following three trials!\nTrial 1 of 3:")
-    print(f"You encounter a {current_enemy[0]}\nMR: {current_enemy[1][0]}\nStrength: {current_enemy[1][1]}")
+    for i, (enemies[0], (mr, strength)) in enumerate(enemy_selection, 1):
+        current_enemy = random.choice(enemy_selection)
+        print(f"You must pass two of the following three trials!\nTrial {i} of 3:")
+        print(f"You encounter a {current_enemy[0]}\nMR: {current_enemy[1][0]}\nStrength: {current_enemy[1][1]}")
+        fight_choice = check_input.get_int_range("Fight\n1. Battle\n2. Dodge\n", 1, 2)
+        passed_trial = False
+        success_count = 0
+        fail_count = 0
+        
+        if fight_choice == 1:
+            if player.magic_resistance() and player.strength() >= (current_enemy[1][0] and current_enemy[1][1]):
+                passed_trial = True
+            print(f"You battle with the {enemies[0]} and " + ("easily defeat it" if passed_trial else "are easily defeated")\
+            + f"\nYou have {'passed' if passed_trial else 'failed'} this trial.")
+        else:
+            dodge_rate = random.randint(1, 4) == 1
+            print(f"You attempt to dodge the {enemies[0]} and " + ("narrowly evade it by the skin of your teeth"\
+                if dodge_rate else "it manages to hit you") + f"\nYou have {'passed' if dodge_rate else 'failed'} this trial.")
+        
+        if passed_trial:
+            success_count += 1
+        else:
+            fail_count += 1
+        
+        if success_count == 2:
+            print("\nWell done, you've successfully passed two of the three trials.")
+            break
+        if fail_count == 2:
+            print("\nYou've failed to complete two out of three tails, return home and come back stronger.")
+            break
+    
+    
 
 # execute main game
 if __name__ == "__main__":
