@@ -32,19 +32,21 @@ def get_date() -> str:
     user_day = "{:02d}".format(check_input.get_int_range("Enter day: ", 1, 31))
     user_year = "{:04d}".format(check_input.get_int_range("Enter year: ", 2000, 2100))
 
-    print(f"{user_month}/{user_day}/{user_year}")
+    return f"{user_month}/{user_day}/{user_year}"
 
-def get_time():
+def get_time() -> str:
     """
     Prompts the user to enter the hour (military time) and minute. Valid hours are 0-23 and valid
     minutes are 0-59. Return the date in the format: HH:MM. If the inputted hour or minute is less than
     10, then add a 0 to format it correctly.
     """
-    pass
+    user_hour = "{:02d}".format(check_input.get_int_range("Enter hour: ", 0, 23))
+    user_minute = "{:02d}".format(check_input.get_int_range("Enter minute: ", 0, 59))
+
+    return f"{user_hour}:{user_minute}"
 
 def main():
     print("-Tasklist-")
-    get_date()
     main_menu()
 
 if __name__ == "__main__":
