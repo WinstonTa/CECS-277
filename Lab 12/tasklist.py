@@ -10,13 +10,15 @@ class TaskList():
             print(task_file[i])
 
     def add_task(self, desc, date, time):
-        pass
+        new_task = task.Task(desc, date, time)
+        self._tasklist.append(new_task)
+        self._tasklist.sort()       # sus sorting, check later
 
     def get_current_task(self):
-        pass
+        return self._tasklist[0]
 
     def mark_complete(self):
-        pass
+        return self._tasklist.pop()
 
     def save_file(self):
         pass
