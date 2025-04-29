@@ -27,7 +27,11 @@ def get_date() -> str:
     Prompts the user to enter the month, day, and year. Valid months are 1-12, valid days are 1-31,
     and valid years are 2000-2100 (no need to verify that it is a correct day for the month
     (ie. Feb 31 st is valid)). Return the date in the format:MM/DD/YYYY. If the inputted month or day
-    is less than 10, then add a 0 to format it correctly."""
+    is less than 10, then add a 0 to format it correctly.
+
+    Returns:
+        A string in format MM/DD/YYYY representing the date that a user inputted.
+    """
     user_month = "{:02d}".format(check_input.get_int_range("Enter month: ", 1, 12))
     user_day = "{:02d}".format(check_input.get_int_range("Enter day: ", 1, 31))
     user_year = "{:04d}".format(check_input.get_int_range("Enter year: ", 2000, 2100))
@@ -39,6 +43,9 @@ def get_time() -> str:
     Prompts the user to enter the hour (military time) and minute. Valid hours are 0-23 and valid
     minutes are 0-59. Return the date in the format: HH:MM. If the inputted hour or minute is less than
     10, then add a 0 to format it correctly.
+
+    Returns:
+        A string in format HH:MM representing the time that a user inputted.
     """
     user_hour = "{:02d}".format(check_input.get_int_range("Enter hour: ", 0, 23))
     user_minute = "{:02d}".format(check_input.get_int_range("Enter minute: ", 0, 59))
@@ -47,7 +54,10 @@ def get_time() -> str:
 
 def main():
     print("-Tasklist-")
-    main_menu()
+    user_selection = main_menu()
+
+    while True:
+        if user_selection == 6: break
 
 if __name__ == "__main__":
     main()
