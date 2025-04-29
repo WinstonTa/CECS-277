@@ -8,7 +8,8 @@ class Task():
         return f"{self._desc} - Due: {self._date} at {self._time}"
     
     def __repr__(self): #come back to this
-        pass
+        return self._desc  + "Due: " + self._date + "at" + self._time
+
     def __lt__(self, other):
         # compare by year
         if int(self._date[-4:]) < int(other._date[-4:]): return True
