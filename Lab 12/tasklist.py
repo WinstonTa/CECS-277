@@ -5,7 +5,10 @@ class TaskList():
         self._tasklist = []
         self._n = 0 # is this supposed to be 0?
 
-        # construct task object
+        task_file = open("Lab 12\\tasklist.txt")
+        task_file.readlines()
+        for i in range(len(task_file)):     # is this cheating
+            print(task_file[i])
 
     def add_task(self, desc, date, time):
         pass
@@ -29,3 +32,14 @@ class TaskList():
         pass
 
     
+
+task_file = open("Lab 12\\tasklist.txt")
+task_list = task_file.readlines()
+
+new_list = []
+
+for item in task_list:
+    item = item.strip("\n")    
+    new_list.append(item)
+
+print(new_list)
