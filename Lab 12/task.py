@@ -14,16 +14,16 @@ class Task():
         if int(self._date[-4:]) < int(other._date[-4:]):
             return True
         # compare by month
-        if int(self._date[3:5]) < int(other._date[3:5]):
-            return True
-        # compare by day
         if int(self._date[:2]) < int(other._date[:2]):
             return True
+        # compare by day
+        if int(self._date[3:5]) < int(other._date[3:5]):
+            return True
         # compare by hour
-        if int(self._time[-2:]) < int(other._time[-2:]):
+        if int(self._time[:2]) < int(other._time[:2]):
             return True
         # compare by minute
-        if int(self._time[:2]) < int(other._time[:2]):
+        if int(self._time[-2:]) < int(other._time[-2:]):
             return True
         # compare by alphabetical order
         if self._desc < other._desc:
