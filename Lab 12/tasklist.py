@@ -3,7 +3,6 @@ import task
 class TaskList():
     def __init__(self):
         self._tasklist = []
-        self._n = 0 # is this supposed to be 0?
 
         task_file = open("Lab 12\\tasklist.txt")
         task_file.readlines()
@@ -23,10 +22,13 @@ class TaskList():
         pass
     
     def __len__(self):
-        pass
+        """return the number of items in the tasklist"""
+        return len(self._tasklist)
 
     def __iter__(self):
-        pass
+        """initialize the iterator attribute n and return self."""
+        self._n = 0
+        return self
 
     def __next__(self):
         pass
