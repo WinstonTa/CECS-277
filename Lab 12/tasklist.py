@@ -37,9 +37,17 @@ task_file = open("Lab 12\\tasklist.txt")
 task_list = task_file.readlines()
 
 new_list = []
-
 for item in task_list:
-    item = item.strip("\n")    
-    new_list.append(item)
+    # strip it the \n part
+    item = item.strip("\n")  
+
+    # split by commas
+    task_split = item.split(",")
+    item_desc = task_split[0]
+    item_date = task_split[1]
+    item_time = task_split[2]
+      
+    task_object = task.Task(item_desc, item_date, item_time)
+    new_list.append(task_object)
 
 print(new_list)
