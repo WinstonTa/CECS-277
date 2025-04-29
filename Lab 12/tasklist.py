@@ -15,10 +15,10 @@ class TaskList():
         self._tasklist.sort()       # sus sorting, check later
 
     def get_current_task(self):
-        pass
+        return self._tasklist[0]
 
     def mark_complete(self):
-        pass
+        return self._tasklist.pop()
 
     def save_file(self):
         pass
