@@ -31,7 +31,9 @@ class TaskList():
         return self
 
     def __next__(self):
-        pass
+        self._n += 1
+        if self._n > self.__len__(self): raise StopIteration
+        else: return self._tasklist[self._n - 1]
 
     
 
