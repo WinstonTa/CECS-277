@@ -33,7 +33,7 @@ class TaskList():
     def __next__(self):
         pass
 
-    
+
 
 task_file = open("Lab 12\\tasklist.txt")
 task_list = task_file.readlines()
@@ -45,11 +45,12 @@ for item in task_list:
 
     # split by commas
     task_split = item.split(",")
-    item_desc = task_split[0]
-    item_date = task_split[1]
-    item_time = task_split[2]
-      
-    task_object = task.Task(item_desc, item_date, item_time)
+    
+    # create task object
+    task_object = task.Task(task_split[0], task_split[1], task_split[2])
     new_list.append(task_object)
 
 print(new_list)
+new_list.sort()
+print(new_list)
+
