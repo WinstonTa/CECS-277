@@ -2,11 +2,14 @@ import task
 
 class TaskList():
     def __init__(self):
+        # initialize task list
         self._tasklist = []
 
+        # open task list file
         task_file = open("Lab 12\\tasklist.txt")
         task_file.readlines()
 
+        # file opening
         with open("Lab 12\\tasklist.txt") as file:
             contents = file.readlines()
             for line in contents:
@@ -16,15 +19,35 @@ class TaskList():
         
         self._tasklist.sort()
 
-    def add_task(self, desc, date, time):
+    def add_task(self, desc: str, date: str, time: str):
+        """
+        Allows users to add tasks to the task list.
+
+        Args:
+            desc (str): The name of the task.
+            date (str): The date of the task.
+            time (str): The time of the task.
+        """
         new_task = task.Task(desc, date, time)
         self._tasklist.append(new_task)
-        self._tasklist.sort()       # sus sorting, check later
+        self._tasklist.sort()
 
     def get_current_task(self):
+        """
+        Returns the current task at the top of the list.
+
+        Returns:
+            A string describing the current task.
+        """
         return self._tasklist[0]
 
-    def mark_complete(self):
+    def mark_complete(self) -> task:
+        """
+        Marks current task as complete.
+
+        Returns:
+            The task at the top of the list, done through pop() method.
+        """
         return self._tasklist.pop()
 
     def save_file(self):
