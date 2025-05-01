@@ -24,22 +24,31 @@ def main_menu():
         user_choice = check_input.get_int_range("1. Display current task\n2. Display all tasks\n3. Mark current task complete\
                                                 \n4. Add new tasks\n5. Search by date\n6. Save and quit\nEnter choice: ", 1, 6)
         
+        # user chooses to display current task
         if user_choice == 1:
             print(f"Current task is:\n{user_tasks.get_current_task()}")
+
+        # user chooses to display all tasks
         elif user_choice == 2:
             if len(user_tasks) == 0:
                 print("There are no tasks.")
             else:
                 for i, task in enumerate(user_tasks._tasklist, start = 1):
                     print(f"{i}. {task}")
+        
+        # user chooses to mark current task as complete
         elif user_choice == 3:
             print(f"Marking Current task as complete:\n{user_tasks.get_current_task()}")
             user_tasks.mark_complete()
+
+        # user chooses to add a new task
         elif user_choice == 4:
             task_name = input("Enter a task: ")
             user_date = get_date()
             user_time = get_time()
             user_tasks.add_task(task_name, user_date, user_time)
+
+        # user chooses to search for tasks by date
         elif user_choice == 5:
             print("Enter date to search: ")
             search_date = get_date()
@@ -47,6 +56,8 @@ def main_menu():
             for i, task in enumerate(user_tasks._tasklist, start = 1):
                 if task._date == search_date:
                     print(f"{i}.{task}")
+
+        # user will save and quit
         else:
             print("Saving list...")
             user_tasks.save_file()
