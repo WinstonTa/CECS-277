@@ -51,6 +51,9 @@ class TaskList():
         return self._tasklist.pop()
 
     def save_file(self):
+        """
+        Saves all tasks in the task file.
+        """
         with open("tasklist.txt", "w") as file:
             for item in self._tasklist:
                 file.write(f"{repr(item)}\n")
