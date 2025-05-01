@@ -47,27 +47,3 @@ class TaskList():
         else: return self._tasklist[self._n - 1]
 
 
-
-task_file = open("Lab 12\\tasklist.txt")
-task_list = task_file.readlines()
-
-new_list = []
-count = 0
-for item in task_list:
-    # strip it the \n part
-    item = item.strip("\n")  
-
-    # split by commas
-    task_split = item.split(",")
-    
-    # create task object
-    task_object = task.Task(task_split[0], task_split[1], task_split[2])
-    if task_object < new_list[count] and count > 1:
-        new_list.inert(count)
-    else:
-        new_list.append(task_object)
-    count += 1
-
-print(new_list)
-
-
