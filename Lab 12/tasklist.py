@@ -6,8 +6,15 @@ class TaskList():
 
         task_file = open("Lab 12\\tasklist.txt")
         task_file.readlines()
-        for i in range(len(task_file)):     # is this cheating
-            print(task_file[i])
+
+        with open("Lab 12\\tasklist.txt") as file:
+            contents = file.readlines()
+            for line in contents:
+                desc, date, time = line.split(",")
+                task_item = task.Task(desc, date, time)
+                self._tasklist.append(task_item)
+        
+        self._tasklist.sort()
 
     def add_task(self, desc, date, time):
         new_task = task.Task(desc, date, time)
@@ -21,7 +28,9 @@ class TaskList():
         return self._tasklist.pop()
 
     def save_file(self):
-        pass
+        with open("tasklist.txt", "w") as file:
+            for item in self._tasklist:
+                file.write(f"{repr(item)}\n")
     
     def __len__(self):
         """return the number of items in the tasklist"""
