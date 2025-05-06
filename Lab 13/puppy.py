@@ -1,5 +1,4 @@
 import state_asleep
-import puppy_state
 
 class Puppy():
     def __init__(self):

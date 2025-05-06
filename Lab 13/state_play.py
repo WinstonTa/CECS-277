@@ -10,7 +10,7 @@ class State_Play(puppy_state.Puppy_State):
             puppy.inc_plays()
             return "You throw the ball again and the puppy excitedly chases it."
         elif puppy._plays == 2:
-            puppy.change_state(state_asleep.State_Asleep())
-            puppy.reset()
+            # puppy.change_state(state_asleep.State_Asleep())
+            # puppy.reset()
             return "You throw the ball again and the puppy excitedly chases it.\
                     \nThe puppy played so much it fell asleep!"
