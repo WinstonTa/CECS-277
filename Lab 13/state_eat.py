@@ -15,4 +15,5 @@ class State_Eat(puppy_state.Puppy_State):
 
     def play(self, puppy):
         puppy.change_state(state_play.State_Play())
+        puppy.inc_plays()
         return "The puppy looks up from its food and chases the ball you threw."
