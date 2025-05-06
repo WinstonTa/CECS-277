@@ -1,6 +1,6 @@
 '''
 Name(s): Winston Ta, Mindy Yun
-Date: 2025/05/06
+Date: 2025/05/08
 Description: This project creates a puppy simulator program that has two basic functions
 to feed or play with the puppy. The puppy will react differently to these functions based on 
 which state it is currently in. The puppy has three possible states: asleep, eating, or playing
