@@ -24,3 +24,5 @@ CECS 277 homework and projects
 ## Lab 11 - Character Creator
 
 ## Lab 12 - Task List
+
+## Lab 13 - Puppy Simulator
