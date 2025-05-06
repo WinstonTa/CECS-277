@@ -8,4 +8,5 @@ class State_Asleep(puppy_state.Puppy_State):
         return "The puppy wakes up and comes running to eat."
 
     def play(self, puppy):
+        puppy.reset()
         return "The puppy is asleep. It doesn't want to play right now."
