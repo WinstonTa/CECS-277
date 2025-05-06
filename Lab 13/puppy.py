@@ -3,7 +3,7 @@ import puppy_state
 
 class Puppy():
     def __init__(self):
-        self._state = state_asleep.StateAsleep()
+        self._state = state_asleep.State_Asleep()
         self._feeds = 0
         self._plays = 0
 
